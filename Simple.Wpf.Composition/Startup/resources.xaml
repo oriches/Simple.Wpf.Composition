@@ -1,0 +1,86 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    mc:Ignorable="d"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:startup="clr-namespace:Simple.Wpf.Composition.Startup"
+                    xmlns:workspaces="clr-namespace:Simple.Wpf.Composition.Workspaces">
+
+    <DataTemplate x:Key="MainViewTemplate">
+
+        <Grid d:DataContext="{d:DesignInstance startup:MainViewModel}"
+              FocusManager.FocusedElement="{Binding ElementName=AvailableWorkspacesComboBox}"
+              Background="WhiteSmoke">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <ComboBox x:Name="AvailableWorkspacesComboBox"
+                      Grid.Row="0"
+                      Grid.Column="0"
+                      VerticalAlignment="Center"
+                      ItemsSource="{Binding Path=AvailableWorkspaces, Mode=OneTime}"
+                      Margin="10">
+            </ComboBox>
+
+            <Button x:Name="AddWorkspaceButton"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="0,10,10,10"
+                    Padding="10,0"
+                    Command="{Binding Path=AddWorkspaceCommand, Mode=OneWay}"
+                    CommandParameter="{Binding ElementName=AvailableWorkspacesComboBox, Path=SelectedItem, Mode=OneWay}"
+                    Content="Add" />
+
+            <Border Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Padding="5">
+
+                <TabControl x:Name="WorkspaceTabs"
+                            ItemsSource="{Binding Path=Workspaces, Mode=OneWay}"
+                            SelectedItem="{Binding Path=SelectedWorkspace, Mode=TwoWay}">
+                    <TabControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal"
+                                        Margin="5">
+                                <TextBlock Text="{Binding Path=Title, Mode=OneWay}"
+                                           Margin="0,0,10,0"/>
+                                <Button Content="Close"
+                                        Padding="5,0"
+                                        Command="{Binding ElementName=WorkspaceTabs, Path=DataContext.RemoveWorkspaceCommand, Mode=OneWay}" />
+                                <StackPanel.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Menu 1"></MenuItem>
+                                        <MenuItem Header="Menu 2"></MenuItem>
+                                        <MenuItem Header="Menu 3"></MenuItem>
+                                    </ContextMenu>
+                                </StackPanel.ContextMenu>
+                            </StackPanel>
+                        </DataTemplate>
+                    </TabControl.ItemTemplate>
+                    <TabControl.ContentTemplate>
+                        <DataTemplate>
+                            <ContentControl>
+                                <workspaces:WorkspaceHost x:Name="WorkspaceHost"
+                                                          Margin="10"
+                                                          Workspace="{Binding Mode=OneWay}" />
+                            </ContentControl>
+                        </DataTemplate>
+                    </TabControl.ContentTemplate>
+                </TabControl>
+
+            </Border>
+
+        </Grid>
+
+    </DataTemplate>
+
+</ResourceDictionary>
