@@ -3,27 +3,26 @@
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                     mc:Ignorable="d"
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                    xmlns:vm="clr-namespace:Simple.Wpf.Composition.Workspaces.Example2">
+                    xmlns:vm="clr-namespace:Simple.Wpf.Composition.Workspaces.Dilbert">
 
-    <DataTemplate x:Key="ExampleViewTemplate">
+    <vm:DilbertFilePathConverter x:Key="DilbertFilePathConverter" />
 
-        <Grid d:DataContext="{d:DesignInstance vm:ExampleViewModel}"
+    <DataTemplate x:Key="DilbertViewTemplate">
+
+        <Grid d:DataContext="{d:DesignInstance vm:DilbertViewModel}"
               HorizontalAlignment="Stretch"
               VerticalAlignment="Stretch">
-            
+
             <Border Background="DarkOrange"
-                    VerticalAlignment="Stretch">
-                <TextBlock Text="This is example 2 workspace"
-                           Foreground="White"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Margin="5"
-                           FontSize="16"
-                           FontStyle="Italic" />
+                    VerticalAlignment="Stretch"
+                    Padding="5">
+                <ContentPresenter Width="500"
+                                  Height="200"
+                                  Content="{Binding Path=FilePath, Converter={StaticResource DilbertFilePathConverter}}" />
             </Border>
-            
+
         </Grid>
-        
+
     </DataTemplate>
-    
+
 </ResourceDictionary>

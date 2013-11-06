@@ -1,6 +1,5 @@
 ﻿namespace Simple.Wpf.Composition.Workspaces.Dilbert
 {
-    using System.Reactive.Threading.Tasks;
     using System.Threading.Tasks;
     using global::Dilbert;
 

@@ -11,6 +11,7 @@
 
 using Simple.Wpf.Composition.Startup;
 using Simple.Wpf.Composition.Workspaces;
+using Simple.Wpf.Composition.Workspaces.Dilbert;
 using Simple.Wpf.Composition.Workspaces.Example1;
 using Simple.Wpf.Composition.Workspaces.Example2;
 using System;

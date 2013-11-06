@@ -4,13 +4,13 @@
     using Autofac;
     using global::Dilbert;
 
-    public sealed class ExampleWorkspaceDescriptor : IWorkspaceDescriptor
+    public sealed class DilbertWorkspaceDescriptor : IWorkspaceDescriptor
     {
         private readonly Uri _resources = new Uri("/simple.wpf.composition;component/workspaces/dilbert/resources.xaml", UriKind.RelativeOrAbsolute);
 
         private readonly WorkspaceFactory _workspaceFactory;
 
-        public ExampleWorkspaceDescriptor(WorkspaceFactory workspaceFactory)
+        public DilbertWorkspaceDescriptor(WorkspaceFactory workspaceFactory)
         {
             _workspaceFactory = workspaceFactory;
         }
