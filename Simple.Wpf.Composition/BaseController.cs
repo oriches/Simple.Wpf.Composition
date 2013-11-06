@@ -26,7 +26,7 @@
         {
         }
 
-        public new TViewModel ViewModel { get { return (TViewModel)base.ViewModel; } }
+        public virtual new TViewModel ViewModel { get { return (TViewModel)base.ViewModel; } }
 
         public override Type Type { get { return typeof (TViewModel); } }
     }

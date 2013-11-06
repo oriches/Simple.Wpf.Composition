@@ -66,3 +66,14 @@ D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Simple.Wpf.Compo
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Simple.Wpf.Composition.csproj.GenerateResource.Cache
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Simple.Wpf.Composition.exe
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Simple.Wpf.Composition.pdb
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Workspaces\Dilbert\resources.baml
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\Dilbert.dll
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\Microsoft.Threading.Tasks.dll
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.Net.Http.Extensions.dll
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.Net.Http.Primitives.dll
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\Microsoft.Threading.Tasks.xml
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.Net.Http.Extensions.xml
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.Net.Http.Primitives.xml
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Simple.Wpf.Composition.csproj.App.config
