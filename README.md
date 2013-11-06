@@ -1,0 +1,2 @@
+Simple.Wpf.Composition
+======================
