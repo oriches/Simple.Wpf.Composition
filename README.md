@@ -9,7 +9,7 @@ Blog about this [here](http://awkwardcoder.blogspot.co.uk/2013/11/using-ioc-nest
 
 *Why I did this?*
 
-I see PRISM used a lot in the wrong places, it's a sledgehammer to crack a nut! This results in slow application startup - the splash screen showing the 'systm' modules being loaded & resolved, users don't want to see this, they want to use yuor application. Also this results in code bloat.
+I see PRISM used a lot in the wrong places, it's a sledgehammer to crack a nut! This results in slow application startup - the splash screen showing the application modules being loaded & resolved, users don't want to see this, they want to use your application to get on with their jobs.
 
   1. If you don't have true dynamic composition at runtime why use modules etc,
   2. Why use MEF at all when your application is not dynamic, an IoC container does everything you need,
