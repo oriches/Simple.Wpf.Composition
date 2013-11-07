@@ -3,7 +3,7 @@ Simple.Wpf.Composition
 
 If you're reading this you're probably what this git repo is about...
 
-Simply this is example code I use to for View composition in WPF, it's all MVVM and uses an IoC container through out. I use the IoC container to created nested (child) lifetime scopes for the main ViewModels, these are created by a WorkspaceDescriptor, contained inside a Workspace and managed by the application chrome (inrastructure), when a Workspace is closed the Workspace is disposed and the nested lifetime scope in the IoC container is disposed - everything is cleaned up! The following blog post explains more - http://awkwardcoder.blogspot.co.uk/2013/11/using-ioc-nested-lifetime-scopes-with.html
+Simply this is example code I'ved used to do composition in WPF, it's all MVVM and uses an IoC container through out. I use the IoC container to created nested (child) lifetime scopes for the main ViewModels, these are created by a WorkspaceDescriptor, contained inside a Workspace and managed by the application chrome (inrastructure), when a Workspace is closed the Workspace is disposed and the nested lifetime scope in the IoC container is disposed - everything is cleaned up! The following blog post explains more - http://awkwardcoder.blogspot.co.uk/2013/11/using-ioc-nested-lifetime-scopes-with.html
 
 *Why I did this?*
 
