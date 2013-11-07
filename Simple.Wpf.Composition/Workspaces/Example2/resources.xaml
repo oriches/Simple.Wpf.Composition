@@ -5,10 +5,9 @@
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                     xmlns:vm="clr-namespace:Simple.Wpf.Composition.Workspaces.Example2">
 
-    <DataTemplate x:Key="ExampleViewTemplate">
+    <DataTemplate DataType="{x:Type vm:ExampleViewModel}">
 
-        <Grid d:DataContext="{d:DesignInstance vm:ExampleViewModel}"
-              HorizontalAlignment="Stretch"
+        <Grid HorizontalAlignment="Stretch"
               VerticalAlignment="Stretch">
             
             <Border Background="DarkOrange"

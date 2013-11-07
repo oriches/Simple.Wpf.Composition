@@ -133,7 +133,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BaseController.cs" />
-    <Compile Include="Startup\StartupDataTemplateSelector.cs" />
     <Compile Include="Workspaces\Dilbert\DilbertController.cs" />
     <Compile Include="Workspaces\Dilbert\DilbertFilePathConverter.cs" />
     <Compile Include="Workspaces\Dilbert\DilbertViewModel.cs" />
@@ -159,7 +158,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Startup\BootStrapper.cs" />
-    <Compile Include="Workspaces\WorkspaceDataTemplateSelector.cs" />
     <Compile Include="Workspaces\IWorkspaceDescriptor.cs" />
     <Compile Include="Startup\MainController.cs" />
     <Compile Include="Startup\MainViewModel.cs" />

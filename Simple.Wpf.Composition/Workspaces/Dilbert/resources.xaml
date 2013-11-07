@@ -7,13 +7,12 @@
 
     <vm:DilbertFilePathConverter x:Key="DilbertFilePathConverter" />
 
-    <DataTemplate x:Key="DilbertViewTemplate">
+    <DataTemplate DataType="{x:Type vm:DilbertViewModel}">
 
-        <Grid d:DataContext="{d:DesignInstance vm:DilbertViewModel}"
-              HorizontalAlignment="Stretch"
+        <Grid HorizontalAlignment="Stretch"
               VerticalAlignment="Stretch">
 
-            <Border Background="DarkOrange"
+            <Border Background="LawnGreen"
                     VerticalAlignment="Stretch"
                     Padding="5">
                 <ContentPresenter Width="500"

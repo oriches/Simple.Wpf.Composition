@@ -6,10 +6,9 @@
                     xmlns:startup="clr-namespace:Simple.Wpf.Composition.Startup"
                     xmlns:workspaces="clr-namespace:Simple.Wpf.Composition.Workspaces">
 
-    <DataTemplate x:Key="MainViewTemplate">
+    <DataTemplate DataType="{x:Type startup:MainViewModel}">
 
-        <Grid d:DataContext="{d:DesignInstance startup:MainViewModel}"
-              FocusManager.FocusedElement="{Binding ElementName=AvailableWorkspacesComboBox}"
+        <Grid FocusManager.FocusedElement="{Binding ElementName=AvailableWorkspacesComboBox}"
               Background="WhiteSmoke">
 
             <Grid.RowDefinitions>

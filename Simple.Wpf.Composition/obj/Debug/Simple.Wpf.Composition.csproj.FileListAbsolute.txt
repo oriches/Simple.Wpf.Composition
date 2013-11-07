@@ -77,3 +77,4 @@ D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\Microsoft.Thread
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.Net.Http.Extensions.xml
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.Net.Http.Primitives.xml
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Simple.Wpf.Composition.csproj.App.config
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Simple.Wpf.Composition.csprojResolveAssemblyReference.cache

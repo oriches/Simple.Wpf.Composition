@@ -52,7 +52,6 @@
             {
                 LoadResources(newWorkspace.Resources);
 
-                WorkspacePresenter.ContentTemplateSelector = new WorkspaceDataTemplateSelector(this);
                 WorkspacePresenter.Content = newWorkspace.Content;
             }
             else

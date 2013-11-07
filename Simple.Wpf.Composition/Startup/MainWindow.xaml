@@ -4,7 +4,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:startup="clr-namespace:Simple.Wpf.Composition.Startup"
         SizeToContent="WidthAndHeight"
         Title="Simple WPF Composition"
         MinWidth="200"
@@ -17,13 +16,10 @@
                 <ResourceDictionary Source="resources.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <startup:StartupDataTemplateSelector x:Key="StartupDataTemplateSelector" />
-
         </ResourceDictionary>
 
     </Window.Resources>
 
-    <ContentPresenter Content="{Binding}"
-                      ContentTemplateSelector="{StaticResource StartupDataTemplateSelector}" />
+    <ContentPresenter Content="{Binding}" />
 
 </Window>
