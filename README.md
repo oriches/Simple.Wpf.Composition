@@ -14,7 +14,7 @@ I see PRISM used a lot in the wrong places, it's a sledgehammer to crack a nut! 
   3. Why do layout composition in anything but XAML, it's what it's designed for!
   
 
-A big shout out to [David Hanson](https://github.com/Davidhanson90) for the inspiration.
+A big shout out to [David Hanson](https://github.com/Davidhanson90) for the inspiration - to keep him happy!
 
  
   
