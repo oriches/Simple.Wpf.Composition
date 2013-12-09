@@ -12,7 +12,10 @@
             _dailyDilbertService = dailyDilbertService;
 
             _dailyDilbertService.DailyAsFileAsync()
-                .ContinueWith(t => ViewModel.FilePath = t.Result, TaskScheduler.FromCurrentSynchronizationContext());
+                .ContinueWith(t =>
+                              {
+                                  ViewModel.FilePath = t.IsFaulted ? null : t.Result;
+                              }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         public override DilbertViewModel ViewModel
