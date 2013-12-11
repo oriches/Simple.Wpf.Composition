@@ -14,6 +14,7 @@ using Simple.Wpf.Composition.Workspaces;
 using Simple.Wpf.Composition.Workspaces.Dilbert;
 using Simple.Wpf.Composition.Workspaces.Example1;
 using Simple.Wpf.Composition.Workspaces.Example2;
+using Simple.Wpf.Composition.Workspaces.Weather;
 using System;
 using System.Diagnostics;
 using System.Windows;

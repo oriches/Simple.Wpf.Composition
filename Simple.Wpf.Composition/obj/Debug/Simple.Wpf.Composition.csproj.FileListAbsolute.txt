@@ -77,4 +77,10 @@ D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\Microsoft.Thread
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.Net.Http.Extensions.xml
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.Net.Http.Primitives.xml
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Simple.Wpf.Composition.csproj.App.config
-D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Simple.Wpf.Composition.csprojResolveAssemblyReference.cache
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Workspaces\Weather\resources.baml
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\Newtonsoft.Json.dll
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\Simple.Rest.dll
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\Zlib.Portable.dll
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\Newtonsoft.Json.xml
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\Simple.Rest.xml
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\Zlib.Portable.pdb
