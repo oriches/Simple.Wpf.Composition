@@ -100,9 +100,9 @@
     <Reference Include="Simple.Rest">
       <HintPath>..\packages\Simple.Rest.0.13.0.0\lib\portable-net4+sl5+wp8\Simple.Rest.dll</HintPath>
     </Reference>
-    <Reference Include="Simple.Wpf.Terminal, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Simple.Wpf.Terminal, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Simple.Wpf.Terminal.1.3.0.0\lib\net40\Simple.Wpf.Terminal.dll</HintPath>
+      <HintPath>..\packages\Simple.Wpf.Terminal.1.5.0.0\lib\net40\Simple.Wpf.Terminal.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
