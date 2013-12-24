@@ -92,5 +92,4 @@ D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\NLog.config
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Simple.Wpf.Composition_Content.g.cs
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.Reactive.Windows.Threading.dll
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.Reactive.Windows.Threading.xml
-D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Simple.Wpf.Composition.csprojResolveAssemblyReference.cache
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\Simple.Wpf.Terminal.xml
