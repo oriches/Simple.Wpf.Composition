@@ -1,0 +1,27 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    mc:Ignorable="d"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:vm="clr-namespace:Simple.Wpf.Composition.Workspaces.Logging"
+                    xmlns:terminal="clr-namespace:Simple.Wpf.Terminal;assembly=Simple.Wpf.Terminal">
+
+    <DataTemplate DataType="{x:Type vm:LoggingViewModel}">
+
+        <Grid HorizontalAlignment="Left">
+            
+            <Border Background="DarkOrange"
+                    VerticalAlignment="Stretch"
+                    HorizontalAlignment="Stretch">
+                <terminal:Terminal x:Name="LoggingTerminal"
+                                   Margin="5"
+                                   IsReadOnly="True"
+                                   Prompt="{Binding Path=Prompt, Mode=OneTime}"
+                                   ItemsSource="{Binding Path=Entries, Mode=OneWay}"/>
+            </Border>
+            
+        </Grid>
+        
+    </DataTemplate>
+    
+</ResourceDictionary>

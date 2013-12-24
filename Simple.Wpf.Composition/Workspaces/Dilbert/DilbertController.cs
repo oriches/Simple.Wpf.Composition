@@ -5,13 +5,9 @@
 
     public sealed class DilbertController : BaseController<DilbertViewModel>
     {
-        private readonly IDailyDilbertService _dailyDilbertService;
-
         public DilbertController(DilbertViewModel viewModel, IDailyDilbertService dailyDilbertService) : base(viewModel)
         {
-            _dailyDilbertService = dailyDilbertService;
-
-            _dailyDilbertService.DailyAsFileAsync()
+            dailyDilbertService.DailyAsFileAsync()
                 .ContinueWith(t =>
                               {
                                   ViewModel.FilePath = t.IsFaulted ? null : t.Result;

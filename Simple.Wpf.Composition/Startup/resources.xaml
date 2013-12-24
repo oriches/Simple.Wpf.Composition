@@ -44,6 +44,7 @@
                     Padding="5">
 
                 <TabControl x:Name="WorkspaceTabs"
+                            Width="800"
                             ItemsSource="{Binding Path=Workspaces, Mode=OneWay}"
                             SelectedItem="{Binding Path=SelectedWorkspace, Mode=TwoWay}">
                     <TabControl.ItemTemplate>
