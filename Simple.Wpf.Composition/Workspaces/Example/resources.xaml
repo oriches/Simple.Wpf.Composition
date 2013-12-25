@@ -3,16 +3,16 @@
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                     mc:Ignorable="d"
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                    xmlns:vm="clr-namespace:Simple.Wpf.Composition.Workspaces.Example2">
+                    xmlns:vm="clr-namespace:Simple.Wpf.Composition.Workspaces.Example">
 
     <DataTemplate DataType="{x:Type vm:ExampleViewModel}">
 
         <Grid HorizontalAlignment="Stretch"
               VerticalAlignment="Stretch">
             
-            <Border Background="DarkOrange"
+            <Border Background="DarkMagenta"
                     VerticalAlignment="Stretch">
-                <TextBlock Text="This is example 2 workspace"
+                <TextBlock Text="This is an example workspace"
                            Foreground="White"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"

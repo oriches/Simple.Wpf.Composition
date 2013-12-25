@@ -1,4 +1,4 @@
-﻿namespace Simple.Wpf.Composition.Workspaces.Example1
+﻿namespace Simple.Wpf.Composition.Workspaces.Example
 {
     public sealed class ExampleViewModel : BaseViewModel
     {

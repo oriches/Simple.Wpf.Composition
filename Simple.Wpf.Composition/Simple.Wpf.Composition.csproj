@@ -161,6 +161,9 @@
     </ApplicationDefinition>
     <Compile Include="BaseController.cs" />
     <Compile Include="ExpressionHelper.cs" />
+    <Compile Include="Workspaces\Memory\MemoryController.cs" />
+    <Compile Include="Workspaces\Memory\MemoryViewModel.cs" />
+    <Compile Include="Workspaces\Memory\MemoryWorkspaceDescriptor.cs" />
     <Compile Include="Workspaces\Logging\ILogReader.cs" />
     <Compile Include="Workspaces\Logging\LoggingController.cs" />
     <Compile Include="Workspaces\Logging\LoggingViewModel.cs" />
@@ -183,12 +186,9 @@
     <Compile Include="Workspaces\Dilbert\DilbertFilePathConverter.cs" />
     <Compile Include="Workspaces\Dilbert\DilbertViewModel.cs" />
     <Compile Include="Workspaces\Dilbert\DilbertWorkspaceDescriptor.cs" />
-    <Compile Include="Workspaces\Example2\ExampleController.cs" />
-    <Compile Include="Workspaces\Example2\ExampleViewModel.cs" />
-    <Compile Include="Workspaces\Example2\ExampleWorkspaceDescriptor.cs" />
-    <Compile Include="Workspaces\Example1\ExampleController.cs" />
-    <Compile Include="Workspaces\Example1\ExampleViewModel.cs" />
-    <Compile Include="Workspaces\Example1\ExampleWorkspaceDescriptor.cs" />
+    <Compile Include="Workspaces\Example\ExampleController.cs" />
+    <Compile Include="Workspaces\Example\ExampleViewModel.cs" />
+    <Compile Include="Workspaces\Example\ExampleWorkspaceDescriptor.cs" />
     <Compile Include="Workspaces\WorkspaceHost.xaml.cs">
       <DependentUpon>WorkspaceHost.xaml</DependentUpon>
     </Compile>
@@ -218,6 +218,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Workspaces\Memory\resources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Workspaces\Logging\resources.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -230,11 +234,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Workspaces\Example2\resources.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Workspaces\Example1\resources.xaml">
+    <Page Include="Workspaces\Example\resources.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
