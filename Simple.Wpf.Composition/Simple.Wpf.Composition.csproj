@@ -160,6 +160,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BaseController.cs" />
+    <Compile Include="ExpressionHelper.cs" />
     <Compile Include="Workspaces\Logging\ILogReader.cs" />
     <Compile Include="Workspaces\Logging\LoggingController.cs" />
     <Compile Include="Workspaces\Logging\LoggingViewModel.cs" />

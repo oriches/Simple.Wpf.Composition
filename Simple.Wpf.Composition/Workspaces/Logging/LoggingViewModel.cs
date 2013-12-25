@@ -12,16 +12,13 @@
             _entries = new ObservableCollection<string>();
         }
 
-        public string Prompt { get { return "> "; } } 
+        public string Prompt { get { return ">"; } }
 
-        public IEnumerable<string> Entries { get { return _entries; } } 
-        
-        public void AddEntries(IEnumerable<string> entries)
+        public IEnumerable<string> Entries { get { return _entries; } }
+
+        public void AddEntry(string entry)
         {
-            foreach (var entry in entries)
-            {
-                _entries.Add(Prompt + entry);
-            }
+            _entries.Add(Prompt + entry);
         }
     }
 }

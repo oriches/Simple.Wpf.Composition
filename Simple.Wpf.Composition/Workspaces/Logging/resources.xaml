@@ -8,17 +8,19 @@
 
     <DataTemplate DataType="{x:Type vm:LoggingViewModel}">
 
-        <Grid HorizontalAlignment="Left">
+        <Grid>
             
-            <Border Background="DarkOrange"
-                    VerticalAlignment="Stretch"
-                    HorizontalAlignment="Stretch">
-                <terminal:Terminal x:Name="LoggingTerminal"
-                                   Margin="5"
-                                   IsReadOnly="True"
-                                   Prompt="{Binding Path=Prompt, Mode=OneTime}"
-                                   ItemsSource="{Binding Path=Entries, Mode=OneWay}"/>
-            </Border>
+            <terminal:Terminal x:Name="LoggingTerminal"
+                               Margin="5"
+                               IsReadOnly="True"
+                               Background="DarkOrange"
+                               Foreground="DarkBlue"
+                               VerticalAlignment="Stretch"
+                               HorizontalAlignment="Stretch"
+                               ItemErrorColor="GreenYellow"
+                               VerticalScrollBarVisibility="Visible"
+                               Prompt="{Binding Path=Prompt, Mode=OneTime}"
+                               ItemsSource="{Binding Path=Entries, Mode=OneWay}"/>
             
         </Grid>
         

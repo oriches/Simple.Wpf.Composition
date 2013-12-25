@@ -4,12 +4,12 @@
 
     public abstract class BaseController : IDisposable
     {
-        protected BaseController(BaseViewModel viewModel)
+        protected BaseController(BaseViewModel viewModel = null)
         {
             ViewModel = viewModel;
         }
 
-        public BaseViewModel ViewModel { get; private set; }
+        public BaseViewModel ViewModel { get; protected set; }
 
         public abstract Type Type { get; }
 
@@ -21,12 +21,23 @@
 
     public abstract class BaseController<TViewModel> : BaseController where TViewModel : BaseViewModel
     {
-        protected BaseController(TViewModel viewModel)
+        protected BaseController(TViewModel viewModel = null)
             : base(viewModel)
         {
         }
 
-        public virtual new TViewModel ViewModel { get { return (TViewModel)base.ViewModel; } }
+        public virtual new TViewModel ViewModel
+        {
+            get
+            {
+                return (TViewModel)base.ViewModel;
+            }
+
+            protected set
+            {
+                base.ViewModel = value;
+            }
+        }
 
         public override Type Type { get { return typeof (TViewModel); } }
     }

@@ -8,13 +8,14 @@
     {
         private readonly IDisposable _disposable;
 
-        public LoggingController(LoggingViewModel viewModel, ILogReader reader, IScheduler scheduler = null) : base(viewModel)
+        public LoggingController(LoggingViewModel viewModel, ILogReader reader, IScheduler scheduler = null)
+            : base(viewModel)
         {
-            IScheduler scheduler1 = scheduler ?? DispatcherScheduler.Current;
+            scheduler = scheduler ?? DispatcherScheduler.Current;
 
-            _disposable = reader.GetInMemoryEntries()
-                .ObserveOn(scheduler1)
-                .Subscribe(viewModel.AddEntries);
+            _disposable = reader.Entries
+                .ObserveOn(scheduler)
+                .Subscribe(x => ViewModel.AddEntry(x));
         }
 
         public override void Dispose()

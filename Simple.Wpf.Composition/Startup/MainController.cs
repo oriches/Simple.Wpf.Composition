@@ -10,8 +10,9 @@
     {
         private readonly IEnumerable<IWorkspaceDescriptor> _workspaceDescriptors;
         private readonly IDisposable _addDisposable;
+        private readonly Logger _logger;
+
         private IDisposable _removeDisposable;
-        private Logger _logger;
 
         public MainController(MainViewModel viewModel, IEnumerable<IWorkspaceDescriptor> workspaceDescriptors)
             : base(viewModel)
@@ -24,6 +25,11 @@
             var availableWorkspaces = _workspaceDescriptors.OrderBy(x => x.Position)
                 .Select(x => x.Name)
                 .ToList();
+
+            foreach (var availableWorkspace in availableWorkspaces)
+            {
+                _logger.Debug("Available workspace - '{0}'", availableWorkspace);
+            }
 
             availableWorkspaces.Insert(0, string.Empty);
 
@@ -52,15 +58,22 @@
             var title = @group == null ? requestedWorkspace : string.Format("{0} ({1})", requestedWorkspace, @group.Count() + 1);
 
             newWorkspace.Title = title;
+
+            _logger.Debug("Workspace title - '{0}'", title);
             
             ViewModel.AddWorkspace(newWorkspace);
+            _logger.Debug("Workspace count = {0}", ViewModel.Workspaces.Count);
         }
 
         private void DeleteWorkspace(Workspace workspace)
         {
+            _logger.Debug("Deleting workspace, title - '{0}'", workspace.Title);
+
             ViewModel.RemoveWorkspace(workspace);
 
             workspace.Dispose();
+
+            _logger.Debug("Workspace count = {0}", ViewModel.Workspaces.Count);
         }
     }
 }

@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Linq.Expressions;
     using System.Reactive.Disposables;
     using System.Runtime.CompilerServices;
 
@@ -60,6 +61,11 @@
             return _suspendedNotifications.AddRef();
         }
 
+        protected virtual void OnPropertyChanged<T>(Expression<Func<T>> expression)
+        {
+            OnPropertyChanged(ExpressionHelper.Name(expression));
+        }
+        
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             if (_suspendedNotifications != null)
@@ -74,6 +80,11 @@
                     handler(this, new PropertyChangedEventArgs(propertyName));
                 }
             }
+        }
+
+        protected virtual bool SetPropertyAndNotify<T>(ref T existingValue, T newValue, Expression<Func<T>> expression)
+        {
+            return SetPropertyAndNotify(ref existingValue, newValue, ExpressionHelper.Name(expression));
         }
 
         protected virtual bool SetPropertyAndNotify<T>(ref T existingValue, T newValue, [CallerMemberName] string propertyName = null)

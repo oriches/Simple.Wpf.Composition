@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Reactive.Subjects;
+    using System.Security.Cryptography;
     using Model;
 
     public sealed class WeatherViewModel : BaseViewModel
@@ -62,8 +63,8 @@
         {
             _weather = weather;
 
-            OnPropertyChanged("Temperature");
-            OnPropertyChanged("Description");
+            OnPropertyChanged(() => Temperature);
+            OnPropertyChanged(() => Description);
         }
     }
 }
