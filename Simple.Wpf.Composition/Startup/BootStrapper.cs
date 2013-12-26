@@ -5,6 +5,7 @@
     using System.Linq;
     using Autofac;
     using Autofac.Core;
+    using Services;
     using Workspaces;
 
     public static class BootStrapper
@@ -38,6 +39,8 @@
             // Register the application 'chrome' stuff...
             builder.RegisterType<MainViewModel>();
             builder.RegisterType<MainController>();
+
+            builder.RegisterType<MemoryService>().As<IMemoryService>().InstancePerLifetimeScope();
             
             // Register all the workspace descriptors in the assembly...
             foreach (var type in GetWorkspaceDescriptorTypes())
@@ -46,6 +49,7 @@
             }
 
             builder.RegisterType<WorkspaceFactory>().InstancePerLifetimeScope();
+
             
             _rootScope = builder.Build();
             _rootScope.Resolve<WorkspaceFactory>(new Parameter[]{ new NamedParameter("scope", _rootScope) });

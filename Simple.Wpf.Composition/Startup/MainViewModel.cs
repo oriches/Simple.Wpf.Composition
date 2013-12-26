@@ -21,6 +21,7 @@
         private ICommand _addCommand;
         private ICommand _removeCommand;
         private Workspace _selectedWorkspace;
+        private string _memoryUsed;
 
         public MainViewModel()
         {
@@ -29,6 +30,8 @@
 
             _addWorkspaceStream = new Subject<string>();
             _removeWorkspaceStream = new Subject<Workspace>();
+
+            MemoryUsed = "0.00 Mb";
         }
 
         public ReadOnlyObservableCollection<string> AvailableWorkspaces
@@ -84,6 +87,19 @@
             }
         }
 
+        public string MemoryUsed
+        {
+            get
+            {
+                return _memoryUsed;
+            }
+
+            private set
+            {
+                SetPropertyAndNotify(ref _memoryUsed, value);
+            }
+        }
+
         public IObservable<string> AddWorkspaceStream { get { return _addWorkspaceStream; } }
 
         public IObservable<Workspace> RemoveWorkspaceStream { get { return _removeWorkspaceStream; } }
@@ -119,6 +135,11 @@
 
                 _workspaces.Remove(workspace);
             }
+        }
+
+        public void UpdateMemoryUsed(decimal memoryUsed)
+        {
+            MemoryUsed = string.Format("{0} Mb", memoryUsed.ToString("N"));
         }
 
         public void Dispose()

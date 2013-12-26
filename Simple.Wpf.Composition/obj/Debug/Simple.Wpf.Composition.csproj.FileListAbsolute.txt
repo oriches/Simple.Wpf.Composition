@@ -91,5 +91,4 @@ D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Simple.Wpf.Compo
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.Reactive.Windows.Threading.dll
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.Reactive.Windows.Threading.xml
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\Simple.Wpf.Terminal.xml
-D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Workspaces\Memory\resources.baml
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Workspaces\Example\resources.baml

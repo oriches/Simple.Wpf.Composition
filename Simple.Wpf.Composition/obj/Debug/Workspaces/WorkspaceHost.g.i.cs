@@ -14,7 +14,6 @@ using Simple.Wpf.Composition.Workspaces;
 using Simple.Wpf.Composition.Workspaces.Dilbert;
 using Simple.Wpf.Composition.Workspaces.Example;
 using Simple.Wpf.Composition.Workspaces.Logging;
-using Simple.Wpf.Composition.Workspaces.Memory;
 using Simple.Wpf.Composition.Workspaces.Weather;
 using Simple.Wpf.Terminal;
 using System;

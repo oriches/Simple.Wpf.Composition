@@ -3,25 +3,27 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Reactive.Disposables;
+    using System.Reactive.Linq;
     using NLog;
+    using Services;
     using Workspaces;
 
     public sealed class MainController : BaseController<MainViewModel>
     {
         private readonly IEnumerable<IWorkspaceDescriptor> _workspaceDescriptors;
-        private readonly IDisposable _addDisposable;
         private readonly Logger _logger;
+        private readonly CompositeDisposable _disposable;
 
-        private IDisposable _removeDisposable;
-
-        public MainController(MainViewModel viewModel, IEnumerable<IWorkspaceDescriptor> workspaceDescriptors)
+        public MainController(MainViewModel viewModel, IMemoryService memoryService,
+            IEnumerable<IWorkspaceDescriptor> workspaceDescriptors)
             : base(viewModel)
         {
             _logger = LogManager.GetCurrentClassLogger();
             _logger.Debug("Main controller starting...");
 
             _workspaceDescriptors = workspaceDescriptors;
-        
+
             var availableWorkspaces = _workspaceDescriptors.OrderBy(x => x.Position)
                 .Select(x => x.Name)
                 .ToList();
@@ -35,18 +37,24 @@
 
             ViewModel.AddAvailableWorkspaces(availableWorkspaces);
 
-            _addDisposable = viewModel.AddWorkspaceStream
-                .Subscribe(CreateWorkspace);
-
-            _removeDisposable = viewModel.RemoveWorkspaceStream
-                .Subscribe(DeleteWorkspace);
+            _disposable = new CompositeDisposable
+            {
+                ViewModel.AddWorkspaceStream
+                    .Subscribe(CreateWorkspace),
+                ViewModel.RemoveWorkspaceStream
+                    .Subscribe(DeleteWorkspace),
+                memoryService.MemoryInMegaBytes
+                    .DistinctUntilChanged()
+                    .Throttle(TimeSpan.FromSeconds(1))
+                    .Subscribe(UpdateUsedMemory)
+            };
         }
-        
+
         public override void Dispose()
         {
             base.Dispose();
 
-            _addDisposable.Dispose();
+            _disposable.Dispose();
         }
 
         private void CreateWorkspace(string requestedWorkspace)
@@ -74,6 +82,13 @@
             workspace.Dispose();
 
             _logger.Debug("Workspace count = {0}", ViewModel.Workspaces.Count);
+        }
+
+        private void UpdateUsedMemory(decimal usedMemory)
+        {
+            ViewModel.UpdateMemoryUsed(usedMemory);
+
+            _logger.Debug("Used memory = {0}", ViewModel.MemoryUsed);
         }
     }
 }

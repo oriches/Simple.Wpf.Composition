@@ -7,7 +7,9 @@
         SizeToContent="WidthAndHeight"
         Title="Simple WPF Composition"
         MinWidth="200"
-        MinHeight="300">
+        MinHeight="300"
+        Width="200"
+        Height="300">
 
     <Window.Resources>
 

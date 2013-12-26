@@ -161,9 +161,8 @@
     </ApplicationDefinition>
     <Compile Include="BaseController.cs" />
     <Compile Include="ExpressionHelper.cs" />
-    <Compile Include="Workspaces\Memory\MemoryController.cs" />
-    <Compile Include="Workspaces\Memory\MemoryViewModel.cs" />
-    <Compile Include="Workspaces\Memory\MemoryWorkspaceDescriptor.cs" />
+    <Compile Include="Services\IMemoryService.cs" />
+    <Compile Include="Services\MemoryService.cs" />
     <Compile Include="Workspaces\Logging\ILogReader.cs" />
     <Compile Include="Workspaces\Logging\LoggingController.cs" />
     <Compile Include="Workspaces\Logging\LoggingViewModel.cs" />
@@ -215,10 +214,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Startup\resources.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Workspaces\Memory\resources.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

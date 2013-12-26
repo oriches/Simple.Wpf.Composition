@@ -7,6 +7,8 @@
         public MainWindow()
         {
             InitializeComponent();
+
+            
         }
     }
 }

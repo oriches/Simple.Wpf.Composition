@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\App.xaml
-81613573865
+7-1897081395
 1-2138471434
-501005867913
+491509139833
 3860968687
-Startup\MainWindow.xaml;Startup\resources.xaml;Workspaces\Memory\resources.xaml;Workspaces\Logging\resources.xaml;Workspaces\Weather\resources.xaml;Workspaces\Dilbert\resources.xaml;Workspaces\Example\resources.xaml;Workspaces\WorkspaceHost.xaml;
+Startup\MainWindow.xaml;Startup\resources.xaml;Workspaces\Logging\resources.xaml;Workspaces\Weather\resources.xaml;Workspaces\Dilbert\resources.xaml;Workspaces\Example\resources.xaml;Workspaces\WorkspaceHost.xaml;
 
-True
+False
 
