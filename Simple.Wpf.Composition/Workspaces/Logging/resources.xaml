@@ -13,9 +13,10 @@
             <terminal:Terminal x:Name="LoggingTerminal"
                                Margin="5"
                                IsReadOnly="True"
-                               Background="DarkOrange"
-                               Foreground="DarkBlue"
-                               ItemErrorColor="GreenYellow"
+                               Background="DarkBlue"
+                               Foreground="White"
+                               ItemErrorColor="Red"
+                               FontFamily="Courier"
                                VerticalScrollBarVisibility="Visible"
                                Prompt="{Binding Path=Prompt, Mode=OneTime}"
                                ItemsSource="{Binding Path=Entries, Mode=OneWay}"/>

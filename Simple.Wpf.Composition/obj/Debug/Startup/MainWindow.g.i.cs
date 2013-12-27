@@ -9,13 +9,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using Simple.Wpf.Composition.Startup;
-using Simple.Wpf.Composition.Workspaces;
-using Simple.Wpf.Composition.Workspaces.Dilbert;
-using Simple.Wpf.Composition.Workspaces.Example;
-using Simple.Wpf.Composition.Workspaces.Logging;
-using Simple.Wpf.Composition.Workspaces.Weather;
-using Simple.Wpf.Terminal;
 using System;
 using System.Diagnostics;
 using System.Windows;
