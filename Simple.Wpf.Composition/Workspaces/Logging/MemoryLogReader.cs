@@ -42,7 +42,7 @@
                 var entries = new List<string>();
                 return _connectObservable.SelectMany(x =>
                 {
-                    var newEntries = x.Except(entries).ToList();
+                    var newEntries = x.Except(entries).ToArray();
                     entries.AddRange(newEntries);
 
                     return newEntries;
