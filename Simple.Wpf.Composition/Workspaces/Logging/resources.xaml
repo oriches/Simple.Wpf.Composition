@@ -12,8 +12,6 @@
             
             <terminal:Terminal x:Name="LoggingTerminal"
                                Margin="5"
-                               Width="800"
-                               Height="400"
                                IsReadOnly="True"
                                Background="DarkOrange"
                                Foreground="DarkBlue"

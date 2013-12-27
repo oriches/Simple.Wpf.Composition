@@ -8,13 +8,13 @@
 
     <DataTemplate DataType="{x:Type startup:MainViewModel}">
 
-        <DockPanel LastChildFill="True"
+        <DockPanel x:Name="MainDockPanel"
+                   LastChildFill="True"
                    FocusManager.FocusedElement="{Binding ElementName=AvailableWorkspacesComboBox}"
                    Background="WhiteSmoke">
 
             <Grid DockPanel.Dock="Top"
-                  Margin="5"
-                  HorizontalAlignment="Stretch">
+                  Margin="5">
                 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />

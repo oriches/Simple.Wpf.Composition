@@ -30,7 +30,7 @@
             // Scoped registrations, these will be thrown away when the workspace is disposed...
             public Registrar(ContainerBuilder container)
             {
-                container.RegisterType<LogReader>().As<ILogReader>().WithParameter(new NamedParameter("logName", "memory"));
+                container.RegisterType<MemoryLogReader>().As<ILogReader>().WithParameter(new NamedParameter("logName", "memory"));
                 container.RegisterType<LoggingViewModel>();
                 container.RegisterType<LoggingController>();
             }

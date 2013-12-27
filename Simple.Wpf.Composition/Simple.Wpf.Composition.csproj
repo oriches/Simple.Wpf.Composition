@@ -167,7 +167,7 @@
     <Compile Include="Workspaces\Logging\LoggingController.cs" />
     <Compile Include="Workspaces\Logging\LoggingViewModel.cs" />
     <Compile Include="Workspaces\Logging\LoggingWorkspaceDescriptor.cs" />
-    <Compile Include="Workspaces\Logging\LogReader.cs" />
+    <Compile Include="Workspaces\Logging\MemoryLogReader.cs" />
     <Compile Include="Workspaces\Weather\Model\CityWeather.cs" />
     <Compile Include="Workspaces\Weather\Services\IWeatherService.cs" />
     <Compile Include="Workspaces\Weather\Dtos\WindDto.cs" />
