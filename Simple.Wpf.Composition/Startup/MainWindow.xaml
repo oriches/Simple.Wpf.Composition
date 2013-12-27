@@ -8,6 +8,8 @@
         Title="Simple WPF Composition"
         MinWidth="200"
         MinHeight="300"
+        MaxWidth="1000"
+        MaxHeight="500"
         Width="200"
         Height="300">
 
