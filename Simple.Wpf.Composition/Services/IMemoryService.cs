@@ -4,7 +4,7 @@
 
     public interface IMemoryService
     {
-        IObservable<long> MemoryInBytes { get;  }
+        IObservable<decimal> MemoryInBytes { get; }
 
         IObservable<decimal> MemoryInKiloBytes { get;  }
 

@@ -3,6 +3,7 @@
     using System;
     using System.Diagnostics;
     using System.Reactive;
+    using System.Reactive.Concurrency;
     using System.Reactive.Disposables;
     using System.Reactive.Linq;
     using System.Reactive.Subjects;
@@ -19,17 +20,22 @@
         private readonly IConnectableObservable<EventPattern<object>> _inactiveObservable;
         private readonly Logger _logger;
         private readonly PerformanceCounter _workingSetCounter;
+        private IScheduler _scheduler;
 
-        public MemoryService()
+        public MemoryService(IScheduler scheduler = null)
         {
+            _scheduler = scheduler ?? TaskPoolScheduler.Default;
+
             _logger = LogManager.GetCurrentClassLogger();
 
-            _inactiveObservable = Observable.FromEventPattern(
-                h => Application.Current.MainWindow.Dispatcher.Hooks.DispatcherInactive += h,
-                h => Application.Current.MainWindow.Dispatcher.Hooks.DispatcherInactive -= h)
-                .Replay(1);
-
             _workingSetCounter = new PerformanceCounter("Process", "Working Set - Private", Process.GetCurrentProcess().ProcessName);
+
+            _inactiveObservable = Observable.FromEventPattern(
+               h => Application.Current.MainWindow.Dispatcher.Hooks.DispatcherInactive += h,
+               h => Application.Current.MainWindow.Dispatcher.Hooks.DispatcherInactive -= h)
+               .ObserveOn(_scheduler)
+               .Replay(1);
+
             _disposable = new CompositeDisposable
                           {
                               _inactiveObservable.Connect(),
@@ -42,36 +48,19 @@
             _disposable.Dispose();
         }
 
-        public IObservable<long> MemoryInBytes
-        {
-            get
-            {
-                return _inactiveObservable.Select(x => (long)WorkingSetPrivate()).DistinctUntilChanged();
-            }
-        }
+        public IObservable<decimal> MemoryInBytes { get { return Create(1); } }
 
-        public IObservable<decimal> MemoryInKiloBytes
-        {
-            get
-            {
-                return _inactiveObservable.Select(x => Decimal.Round((decimal)WorkingSetPrivate() / Kilo, 2));
-            }
-        }
+        public IObservable<decimal> MemoryInKiloBytes { get { return Create(Kilo); } }
 
-        public IObservable<decimal> MemoryInMegaBytes
-        {
-            get
-            {
-                return _inactiveObservable.Select(x => Decimal.Round((decimal)WorkingSetPrivate() / Mega, 2));
-            }
-        }
+        public IObservable<decimal> MemoryInMegaBytes { get { return Create(Mega); } } 
 
-        public IObservable<decimal> MemoryInGigaBytes
+        public IObservable<decimal> MemoryInGigaBytes { get { return Create(Giga); } } 
+
+        private IObservable<decimal> Create(int divisor)
         {
-            get
-            {
-                return _inactiveObservable.Select(x => Decimal.Round((decimal)WorkingSetPrivate() / Giga, 2));
-            }
+            return Observable.Return(Decimal.Round((decimal) WorkingSetPrivate()/divisor, 2), _scheduler)
+                .Merge(_inactiveObservable.Select(x => Decimal.Round((decimal) WorkingSetPrivate()/divisor, 2)))
+                .DistinctUntilChanged();
         }
 
         private float WorkingSetPrivate()

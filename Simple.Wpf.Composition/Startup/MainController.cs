@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Reactive.Disposables;
     using System.Reactive.Linq;
+    using Infrastructure;
     using NLog;
     using Services;
     using Workspaces;

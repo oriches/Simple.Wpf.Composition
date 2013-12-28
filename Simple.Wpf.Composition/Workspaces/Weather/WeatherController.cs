@@ -4,6 +4,7 @@
     using System.Reactive.Linq;
     using System.Reactive.Threading.Tasks;
     using System.Windows.Threading;
+    using Infrastructure;
     using Services;
 
     public sealed class WeatherController : BaseController<WeatherViewModel>

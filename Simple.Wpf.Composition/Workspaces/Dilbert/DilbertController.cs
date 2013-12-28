@@ -2,6 +2,7 @@
 {
     using System.Threading.Tasks;
     using global::Dilbert;
+    using Infrastructure;
 
     public sealed class DilbertController : BaseController<DilbertViewModel>
     {

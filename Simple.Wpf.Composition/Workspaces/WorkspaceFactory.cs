@@ -3,6 +3,7 @@
     using System;
     using Autofac;
     using Autofac.Core;
+    using Infrastructure;
 
     public sealed class WorkspaceFactory
     {

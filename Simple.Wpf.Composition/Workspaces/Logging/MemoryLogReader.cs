@@ -6,13 +6,14 @@
     using System.Reactive.Concurrency;
     using System.Reactive.Linq;
     using System.Reactive.Subjects;
+    using Infrastructure;
     using NLog.Targets;
 
     public sealed class MemoryLogReader : ILogReader, IDisposable
     {
         private readonly string _logName;
         private readonly IConnectableObservable<IEnumerable<string>> _connectObservable;
-        private readonly MemoryTarget _target;
+        private readonly LimitedMemoryTarget _target;
         private readonly IDisposable _disposable;
 
         public MemoryLogReader(string logName, IScheduler scheduler = null)
@@ -39,11 +40,12 @@
         {
             get
             {
-                var entries = new List<string>();
+                var entries = Enumerable.Empty<string>();
                 return _connectObservable.SelectMany(x =>
                 {
-                    var newEntries = x.Except(entries).ToArray();
-                    entries.AddRange(newEntries);
+                    var materalisedX = x.ToArray();
+                    var newEntries = materalisedX.Except(entries);
+                    entries = materalisedX;
 
                     return newEntries;
                 });
@@ -55,10 +57,10 @@
             return _target != null ? _target.Logs.Select(x => x + Environment.NewLine) : Enumerable.Empty<string>();
         }
 
-        private MemoryTarget FindTarget()
+        private LimitedMemoryTarget FindTarget()
         {
             return NLog.LogManager.Configuration.AllTargets.Where(target => target.Name == _logName)
-               .Cast<MemoryTarget>()
+               .Cast<LimitedMemoryTarget>()
                .FirstOrDefault();
         }
     }

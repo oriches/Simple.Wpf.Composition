@@ -6,6 +6,7 @@
     using System.Reactive.Subjects;
     using System.Windows.Input;
     using Commands;
+    using Infrastructure;
     using Workspaces;
 
     public sealed class MainViewModel : BaseViewModel, IDisposable

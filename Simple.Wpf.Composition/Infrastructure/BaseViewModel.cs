@@ -1,4 +1,4 @@
-﻿namespace Simple.Wpf.Composition
+﻿namespace Simple.Wpf.Composition.Infrastructure
 {
     using System;
     using System.Collections.Generic;

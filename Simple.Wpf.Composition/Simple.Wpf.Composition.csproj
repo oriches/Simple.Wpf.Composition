@@ -159,8 +159,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BaseController.cs" />
-    <Compile Include="ExpressionHelper.cs" />
+    <Compile Include="Infrastructure\BaseController.cs" />
+    <Compile Include="Infrastructure\ExpressionHelper.cs" />
+    <Compile Include="Infrastructure\LimitedMemoryTarget.cs" />
     <Compile Include="Services\IMemoryService.cs" />
     <Compile Include="Services\MemoryService.cs" />
     <Compile Include="Workspaces\Logging\ILogReader.cs" />
@@ -208,7 +209,7 @@
     <Compile Include="Startup\MainViewModel.cs" />
     <Compile Include="Commands\IRelayCommand.cs" />
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="BaseViewModel.cs" />
+    <Compile Include="Infrastructure\BaseViewModel.cs" />
     <Compile Include="Startup\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

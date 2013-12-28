@@ -5,6 +5,7 @@
     using System.Linq;
     using Autofac;
     using Autofac.Core;
+    using Infrastructure;
     using Services;
     using Workspaces;
 

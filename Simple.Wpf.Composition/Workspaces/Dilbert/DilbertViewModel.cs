@@ -1,5 +1,7 @@
 ﻿namespace Simple.Wpf.Composition.Workspaces.Dilbert
 {
+    using Infrastructure;
+
     public sealed class DilbertViewModel : BaseViewModel
     {
         private string _filePath;

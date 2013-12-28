@@ -5,6 +5,7 @@
     using System.Collections.ObjectModel;
     using System.Reactive.Subjects;
     using System.Security.Cryptography;
+    using Infrastructure;
     using Model;
 
     public sealed class WeatherViewModel : BaseViewModel
