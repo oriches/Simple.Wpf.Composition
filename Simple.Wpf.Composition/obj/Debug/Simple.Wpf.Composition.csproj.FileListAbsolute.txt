@@ -92,3 +92,4 @@ D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Simple.Wpf.Compo
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Simple.Wpf.Composition.exe
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Simple.Wpf.Composition.pdb
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\NLog.config
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\Simple.Wpf.Terminal.Themes.dll

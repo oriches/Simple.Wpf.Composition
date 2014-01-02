@@ -7,7 +7,6 @@
     using System.Reactive.Linq;
     using System.Reactive.Subjects;
     using Infrastructure;
-    using NLog.Targets;
 
     public sealed class MemoryLogReader : ILogReader, IDisposable
     {
