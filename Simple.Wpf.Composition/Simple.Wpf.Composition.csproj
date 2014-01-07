@@ -65,6 +65,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Daily.Dilbert.Service.1.7\lib\net40\Dilbert.dll</HintPath>
     </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Expression.Controls, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Expression.Blend.SDK.4.0.0.0\lib\net40\Microsoft.Expression.Controls.dll</HintPath>
     </Reference>
@@ -100,13 +103,21 @@
     <Reference Include="Simple.Rest">
       <HintPath>..\packages\Simple.Rest.0.13.0.0\lib\portable-net4+sl5+wp8\Simple.Rest.dll</HintPath>
     </Reference>
-    <Reference Include="Simple.Wpf.Terminal, Version=1.14.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Simple.Wpf.FSharp.Repl, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Simple.Wpf.Terminal.1.14.0.0\lib\net40\Simple.Wpf.Terminal.dll</HintPath>
+      <HintPath>..\packages\Simple.Wpf.FSharp.Repl.1.4.0.0\lib\net40\Simple.Wpf.FSharp.Repl.dll</HintPath>
     </Reference>
-    <Reference Include="Simple.Wpf.Terminal.Themes, Version=1.14.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Simple.Wpf.FSharp.Repl.Themes, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Simple.Wpf.Terminal.1.14.0.0\lib\net40\Simple.Wpf.Terminal.Themes.dll</HintPath>
+      <HintPath>..\packages\Simple.Wpf.FSharp.Repl.1.4.0.0\lib\net40\Simple.Wpf.FSharp.Repl.Themes.dll</HintPath>
+    </Reference>
+    <Reference Include="Simple.Wpf.Terminal, Version=1.15.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Simple.Wpf.Terminal.1.15.0.0\lib\net40\Simple.Wpf.Terminal.dll</HintPath>
+    </Reference>
+    <Reference Include="Simple.Wpf.Terminal.Themes, Version=1.15.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Simple.Wpf.Terminal.1.15.0.0\lib\net40\Simple.Wpf.Terminal.Themes.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -168,6 +179,9 @@
     <Compile Include="Infrastructure\LimitedMemoryTarget.cs" />
     <Compile Include="Services\IMemoryService.cs" />
     <Compile Include="Services\MemoryService.cs" />
+    <Compile Include="Workspaces\FSharp.Repl\FSharpReplController.cs" />
+    <Compile Include="Workspaces\FSharp.Repl\FSharpReplWorkspaceDescriptor.cs" />
+    <Compile Include="Workspaces\FSharp.Repl\FSharpReplViewModel.cs" />
     <Compile Include="Workspaces\Logging\ILogReader.cs" />
     <Compile Include="Workspaces\Logging\LoggingController.cs" />
     <Compile Include="Workspaces\Logging\LoggingViewModel.cs" />
@@ -219,6 +233,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Startup\resources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Workspaces\FSharp.Repl\resources.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
