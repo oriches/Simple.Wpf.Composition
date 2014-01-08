@@ -15,10 +15,9 @@
 
         <Grid>
 
-            <ui:ReplWindow x:Name="ReplWindow"
+            <ui:ReplEngine x:Name="ReplEngine"
                            Margin="5"
-                           StartUpScript="let x = 42.00;;"
-                           WorkingDirectory="c:\temp\fsharp"/>
+                           DataContext="{Binding Path=Content, Mode=OneWay}"/>
 
         </Grid>
         

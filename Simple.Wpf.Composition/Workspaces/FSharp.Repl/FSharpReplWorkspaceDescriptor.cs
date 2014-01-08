@@ -2,6 +2,8 @@
 {
     using System;
     using Autofac;
+    using Wpf.FSharp.Repl.UI.Controllers;
+    using Wpf.FSharp.Repl.UI.ViewModels;
 
     public sealed class FSharpReplWorkspaceDescriptor : IWorkspaceDescriptor
     {
@@ -31,6 +33,14 @@
             {
                 container.RegisterType<FSharpReplViewModel>();
                 container.RegisterType<FSharpReplController>();
+
+                container.RegisterType<ReplEngineController>()
+                    .As<IReplEngineController>()
+                    .WithParameter(new NamedParameter("startupScript", "let answer = 42.00;;"))
+                    .WithParameter(new NamedParameter("workingDirectory", "c:\temp\fsharp"));
+
+                container.RegisterType<ReplEngineViewModel>()
+                    .As<IReplEngineViewModel>();
             }
         }
     }

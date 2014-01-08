@@ -14,7 +14,7 @@
         private readonly IConnectableObservable<IEnumerable<string>> _connectObservable;
         private readonly LimitedMemoryTarget _target;
         private readonly IDisposable _disposable;
-
+        
         public MemoryLogReader(string logName, IScheduler scheduler = null)
         {
             _logName = logName;
@@ -39,12 +39,11 @@
         {
             get
             {
-                var entries = Enumerable.Empty<string>();
+                var entries = new string[0];
                 return _connectObservable.SelectMany(x =>
                 {
-                    var materalisedX = x.ToArray();
-                    var newEntries = materalisedX.Except(entries);
-                    entries = materalisedX;
+                    var newEntries = x.Except(entries);
+                    entries = x.ToArray();
 
                     return newEntries;
                 });

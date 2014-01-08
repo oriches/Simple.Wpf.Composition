@@ -1,5 +1,6 @@
 ﻿namespace Simple.Wpf.Composition.Infrastructure
 {
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
     using NLog;
     using NLog.Targets;
@@ -7,7 +8,8 @@
     [Target("LimitedMemory")]
     public sealed class LimitedMemoryTarget : TargetWithLayout
     {
-        private readonly Queue<string> _entries = new Queue<string>();
+        private readonly ConcurrentQueue<string> _entries = new ConcurrentQueue<string>();
+        private readonly object _sync = new object();
 
         public LimitedMemoryTarget()
         {
@@ -18,7 +20,10 @@
 
         public IEnumerable<string> Logs
         {
-            get { return _entries; }
+            get
+            {
+                return _entries;
+            }
         }
 
         protected override void Write(LogEventInfo logEvent)
@@ -28,7 +33,8 @@
             _entries.Enqueue(msg);
             if (_entries.Count > Limit)
             {
-                _entries.Dequeue();
+                string output;
+                _entries.TryDequeue(out output);
             }
         }
     }
