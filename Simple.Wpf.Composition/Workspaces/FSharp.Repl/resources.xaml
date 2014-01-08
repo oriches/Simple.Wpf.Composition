@@ -10,7 +10,6 @@
         <ResourceDictionary Source="/Simple.Wpf.FSharp.Repl.Themes;component/DarkBlueTheme.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-
     <DataTemplate DataType="{x:Type vm:FSharpReplViewModel}">
 
         <Grid>
