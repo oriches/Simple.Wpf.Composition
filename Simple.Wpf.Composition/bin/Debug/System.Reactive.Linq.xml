@@ -4457,48 +4457,6 @@
             <exception cref="T:System.ArgumentNullException"><paramref name="source"/> or <paramref name="keySelector"/> or <paramref name="elementSelector"/> or <paramref name="comparer"/> is null.</exception>
             <remarks>The return type of this operator differs from the corresponding operator on IEnumerable in order to retain asynchronous behavior.</remarks>
         </member>
-        <member name="M:System.Reactive.Linq.Observable.GetAwaiter``1(System.IObservable{``0})">
-            <summary>
-            Gets an awaiter that returns the last value of the observable sequence or throws an exception if the sequence is empty.
-            This operation subscribes to the observable sequence, making it hot.
-            </summary>
-            <typeparam name="TSource">The type of the elements in the source sequence.</typeparam>
-            <param name="source">Source sequence to await.</param>
-            <returns>Object that can be awaited.</returns>
-            <exception cref="T:System.ArgumentNullException"><paramref name="source"/> is null.</exception>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.GetAwaiter``1(System.Reactive.Subjects.IConnectableObservable{``0})">
-            <summary>
-            Gets an awaiter that returns the last value of the observable sequence or throws an exception if the sequence is empty.
-            This operation subscribes and connects to the observable sequence, making it hot.
-            </summary>
-            <typeparam name="TSource">The type of the elements in the source sequence.</typeparam>
-            <param name="source">Source sequence to await.</param>
-            <returns>Object that can be awaited.</returns>
-            <exception cref="T:System.ArgumentNullException"><paramref name="source"/> is null.</exception>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.RunAsync``1(System.IObservable{``0},System.Threading.CancellationToken)">
-            <summary>
-            Gets an awaiter that returns the last value of the observable sequence or throws an exception if the sequence is empty.
-            This operation subscribes to the observable sequence, making it hot. The supplied CancellationToken can be used to cancel the subscription.
-            </summary>
-            <typeparam name="TSource">The type of the elements in the source sequence.</typeparam>
-            <param name="source">Source sequence to await.</param>
-            <param name="cancellationToken">Cancellation token.</param>
-            <returns>Object that can be awaited.</returns>
-            <exception cref="T:System.ArgumentNullException"><paramref name="source"/> is null.</exception>
-        </member>
-        <member name="M:System.Reactive.Linq.Observable.RunAsync``1(System.Reactive.Subjects.IConnectableObservable{``0},System.Threading.CancellationToken)">
-            <summary>
-            Gets an awaiter that returns the last value of the observable sequence or throws an exception if the sequence is empty.
-            This operation subscribes and connects to the observable sequence, making it hot. The supplied CancellationToken can be used to cancel the subscription and connection.
-            </summary>
-            <typeparam name="TSource">The type of the elements in the source sequence.</typeparam>
-            <param name="source">Source sequence to await.</param>
-            <param name="cancellationToken">Cancellation token.</param>
-            <returns>Object that can be awaited.</returns>
-            <exception cref="T:System.ArgumentNullException"><paramref name="source"/> is null.</exception>
-        </member>
         <member name="M:System.Reactive.Linq.Observable.Multicast``2(System.IObservable{``0},System.Reactive.Subjects.ISubject{``0,``1})">
             <summary>
             Multicasts the source sequence notifications through the specified subject to the resulting connectable observable. Upon connection of the
@@ -9718,19 +9676,6 @@
             <summary>
             Unsubscribe all observers and release resources.
             </summary>
-        </member>
-        <member name="M:System.Reactive.Subjects.AsyncSubject`1.GetAwaiter">
-            <summary>
-            Gets an awaitable object for the current AsyncSubject.
-            </summary>
-            <returns>Object that can be awaited.</returns>
-        </member>
-        <member name="M:System.Reactive.Subjects.AsyncSubject`1.OnCompleted(System.Action)">
-            <summary>
-            Specifies a callback action that will be invoked when the subject completes.
-            </summary>
-            <param name="continuation">Callback action that will be invoked when the subject completes.</param>
-            <exception cref="T:System.ArgumentNullException"><paramref name="continuation"/> is null.</exception>
         </member>
         <member name="M:System.Reactive.Subjects.AsyncSubject`1.GetResult">
             <summary>

@@ -99,3 +99,15 @@ D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Workspaces\FShar
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\ICSharpCode.SharpZipLib.dll
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Simple.Wpf.Composition.csprojResolveAssemblyReference.cache
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\Simple.Wpf.FSharp.Repl.xml
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.IO.dll
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.Net.Http.dll
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.Net.Http.WebRequest.dll
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.Runtime.dll
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.Threading.Tasks.dll
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.IO.xml
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.Net.Http.xml
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.Net.Http.WebRequest.xml
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.Runtime.xml
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.Threading.Tasks.xml

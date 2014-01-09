@@ -17,7 +17,7 @@
         private const int Giga = 1024 * 1000 * 1000;
 
         private readonly CompositeDisposable _disposable;
-        private readonly IConnectableObservable<EventPattern<object>> _inactiveObservable;
+        private readonly IConnectableObservable<EventPattern<EventArgs>> _inactiveObservable;
         private readonly Logger _logger;
         private readonly PerformanceCounter _workingSetCounter;
         private IScheduler _scheduler;
