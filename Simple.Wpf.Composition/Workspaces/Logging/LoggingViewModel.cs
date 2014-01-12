@@ -13,7 +13,7 @@
             _entries = new ObservableCollection<string>();
         }
 
-        public string Prompt { get { return "> "; } }
+        public string Prompt { get { return "Log> "; } }
 
         public IEnumerable<string> Entries { get { return _entries; } }
 
