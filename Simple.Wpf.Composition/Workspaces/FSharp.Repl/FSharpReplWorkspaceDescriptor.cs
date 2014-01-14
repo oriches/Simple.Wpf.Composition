@@ -36,7 +36,6 @@
 
                 container.RegisterType<ReplEngineController>()
                     .As<IReplEngineController>()
-                    .WithParameter(new NamedParameter("startupScript", @"let x = 1;;"))
                     .WithParameter(new NamedParameter("workingDirectory", @"c:\temp\fsharp"));
 
                 container.RegisterType<ReplEngineViewModel>()
