@@ -3,8 +3,6 @@
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                     mc:Ignorable="d"
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                    xmlns:vm="clr-namespace:Simple.Wpf.Composition.Workspaces.FSharp.Repl"
-                    xmlns:ui="clr-namespace:Simple.Wpf.FSharp.Repl.UI;assembly=Simple.Wpf.FSharp.Repl"
                     xmlns:terminal="clr-namespace:Simple.Wpf.Terminal;assembly=Simple.Wpf.Terminal">
 
     <Style x:Key="ReplGridStyle"
@@ -58,17 +56,5 @@
         <Setter Property="Background"
                 Value="DarkGreen" />
     </Style>
-
-    <DataTemplate DataType="{x:Type vm:FSharpReplViewModel}">
-
-        <Grid>
-
-            <ui:ReplEngine x:Name="ReplEngine"
-                           Margin="5"
-                           DataContext="{Binding Path=Content, Mode=OneWay}" />
-
-        </Grid>
-
-    </DataTemplate>
 
 </ResourceDictionary>

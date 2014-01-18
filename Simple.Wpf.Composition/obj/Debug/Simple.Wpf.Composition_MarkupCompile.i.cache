@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\App.xaml
-8-1318220184
+9517450267
 1-2138471434
 50-1656273289
 46-399925040
-Startup\MainWindow.xaml;Startup\resources.xaml;Workspaces\FSharp.Repl\resources.xaml;Workspaces\Logging\resources.xaml;Workspaces\Weather\resources.xaml;Workspaces\Dilbert\resources.xaml;Workspaces\Example\resources.xaml;Workspaces\WorkspaceHost.xaml;
+Startup\MainWindow.xaml;Startup\resources.xaml;Workspaces\FSharp.Repl\GreenTheme.xaml;Workspaces\FSharp.Repl\resources.xaml;Workspaces\Logging\resources.xaml;Workspaces\Weather\resources.xaml;Workspaces\Dilbert\resources.xaml;Workspaces\Example\resources.xaml;Workspaces\WorkspaceHost.xaml;
 
-True
+False
 

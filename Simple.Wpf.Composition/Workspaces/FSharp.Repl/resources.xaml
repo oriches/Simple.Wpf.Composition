@@ -5,9 +5,9 @@
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                     xmlns:vm="clr-namespace:Simple.Wpf.Composition.Workspaces.FSharp.Repl"
                     xmlns:ui="clr-namespace:Simple.Wpf.FSharp.Repl.UI;assembly=Simple.Wpf.FSharp.Repl">
-    
+
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/Simple.Wpf.FSharp.Repl.Themes;component/DarkBlueTheme.xaml" />
+        <ResourceDictionary Source="GreenTheme.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <DataTemplate DataType="{x:Type vm:FSharpReplViewModel}">
@@ -16,10 +16,10 @@
 
             <ui:ReplEngine x:Name="ReplEngine"
                            Margin="5"
-                           DataContext="{Binding Path=Content, Mode=OneWay}"/>
+                           DataContext="{Binding Path=Content, Mode=OneWay}" />
 
         </Grid>
-        
+
     </DataTemplate>
-    
+
 </ResourceDictionary>
