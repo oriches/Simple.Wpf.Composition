@@ -111,3 +111,4 @@ D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.Net.Http.
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.Runtime.xml
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\System.Threading.Tasks.xml
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Workspaces\FSharp.Repl\GreenTheme.baml
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Simple.Wpf.Composition.csprojResolveAssemblyReference.cache
