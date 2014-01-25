@@ -103,13 +103,13 @@
     <Reference Include="Simple.Rest">
       <HintPath>..\packages\Simple.Rest.0.13.0.0\lib\portable-net4+sl5+wp8\Simple.Rest.dll</HintPath>
     </Reference>
-    <Reference Include="Simple.Wpf.FSharp.Repl, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Simple.Wpf.FSharp.Repl, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Simple.Wpf.FSharp.Repl.1.8.0.0\lib\net40\Simple.Wpf.FSharp.Repl.dll</HintPath>
+      <HintPath>..\packages\Simple.Wpf.FSharp.Repl.1.9.0.0\lib\net40\Simple.Wpf.FSharp.Repl.dll</HintPath>
     </Reference>
-    <Reference Include="Simple.Wpf.FSharp.Repl.Themes, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Simple.Wpf.FSharp.Repl.Themes, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Simple.Wpf.FSharp.Repl.1.8.0.0\lib\net40\Simple.Wpf.FSharp.Repl.Themes.dll</HintPath>
+      <HintPath>..\packages\Simple.Wpf.FSharp.Repl.1.9.0.0\lib\net40\Simple.Wpf.FSharp.Repl.Themes.dll</HintPath>
     </Reference>
     <Reference Include="Simple.Wpf.Terminal, Version=1.17.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

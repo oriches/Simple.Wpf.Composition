@@ -7,7 +7,7 @@
                     xmlns:ui="clr-namespace:Simple.Wpf.FSharp.Repl.UI;assembly=Simple.Wpf.FSharp.Repl">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="GreenTheme.xaml" />
+        <ResourceDictionary Source="/Simple.Wpf.FSharp.Repl.Themes;component/DarkBlueTheme.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <DataTemplate DataType="{x:Type vm:FSharpReplViewModel}">
