@@ -105,11 +105,11 @@
     </Reference>
     <Reference Include="Simple.Wpf.FSharp.Repl, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Simple.Wpf.FSharp.Repl.1.9.0.0\lib\net40\Simple.Wpf.FSharp.Repl.dll</HintPath>
+      <HintPath>..\packages\Simple.Wpf.FSharp.Repl.1.10.0.0\lib\net40\Simple.Wpf.FSharp.Repl.dll</HintPath>
     </Reference>
     <Reference Include="Simple.Wpf.FSharp.Repl.Themes, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Simple.Wpf.FSharp.Repl.1.9.0.0\lib\net40\Simple.Wpf.FSharp.Repl.Themes.dll</HintPath>
+      <HintPath>..\packages\Simple.Wpf.FSharp.Repl.1.10.0.0\lib\net40\Simple.Wpf.FSharp.Repl.Themes.dll</HintPath>
     </Reference>
     <Reference Include="Simple.Wpf.Terminal, Version=1.20.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -148,8 +148,9 @@
     <Reference Include="System.Reactive.Linq">
       <HintPath>..\packages\Rx-Linq.2.2.2\lib\net40\System.Reactive.Linq.dll</HintPath>
     </Reference>
-    <Reference Include="System.Reactive.PlatformServices">
-      <HintPath>..\packages\Rx-PlatformServices.2.2.2\lib\net40\System.Reactive.PlatformServices.dll</HintPath>
+    <Reference Include="System.Reactive.PlatformServices, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Rx-PlatformServices.2.2.3\lib\net40\System.Reactive.PlatformServices.dll</HintPath>
     </Reference>
     <Reference Include="System.Reactive.Windows.Threading">
       <HintPath>..\packages\Rx-XAML.2.2.2\lib\net40\System.Reactive.Windows.Threading.dll</HintPath>
