@@ -90,7 +90,6 @@ D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\ko\System.Window
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Simple.Wpf.Composition.csproj.App.config
-D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Simple.Wpf.Composition.csprojResolveAssemblyReference.cache
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Startup\MainWindow.baml
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Workspaces\FSharp.Repl\GreenTheme.baml
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Workspaces\WorkspaceHost.baml
@@ -112,3 +111,4 @@ D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Simple.Wpf.Compo
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Simple.Wpf.Composition.csproj.GenerateResource.Cache
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Simple.Wpf.Composition.exe
 D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Simple.Wpf.Composition.pdb
+D:\Work\Simple.Wpf.Composition\Simple.Wpf.Composition\obj\Debug\Simple.Wpf.Composition.csprojResolveAssemblyReference.cache

@@ -94,8 +94,9 @@
     <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.165\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NLog">
       <HintPath>..\packages\NLog.2.1.0\lib\net40\NLog.dll</HintPath>
@@ -103,13 +104,13 @@
     <Reference Include="Simple.Rest">
       <HintPath>..\packages\Simple.Rest.0.13.0.0\lib\portable-net4+sl5+wp8\Simple.Rest.dll</HintPath>
     </Reference>
-    <Reference Include="Simple.Wpf.FSharp.Repl, Version=1.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Simple.Wpf.FSharp.Repl, Version=1.12.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Simple.Wpf.FSharp.Repl.1.11.0.0\lib\net40\Simple.Wpf.FSharp.Repl.dll</HintPath>
+      <HintPath>..\packages\Simple.Wpf.FSharp.Repl.1.12.0.0\lib\net40\Simple.Wpf.FSharp.Repl.dll</HintPath>
     </Reference>
-    <Reference Include="Simple.Wpf.FSharp.Repl.Themes, Version=1.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Simple.Wpf.FSharp.Repl.Themes, Version=1.12.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Simple.Wpf.FSharp.Repl.1.11.0.0\lib\net40\Simple.Wpf.FSharp.Repl.Themes.dll</HintPath>
+      <HintPath>..\packages\Simple.Wpf.FSharp.Repl.1.12.0.0\lib\net40\Simple.Wpf.FSharp.Repl.Themes.dll</HintPath>
     </Reference>
     <Reference Include="Simple.Wpf.Terminal, Version=1.20.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
