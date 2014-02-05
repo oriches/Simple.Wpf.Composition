@@ -101,8 +101,9 @@
     <Reference Include="NLog">
       <HintPath>..\packages\NLog.2.1.0\lib\net40\NLog.dll</HintPath>
     </Reference>
-    <Reference Include="Simple.Rest">
-      <HintPath>..\packages\Simple.Rest.0.13.0.0\lib\portable-net4+sl5+wp8\Simple.Rest.dll</HintPath>
+    <Reference Include="Simple.Rest, Version=0.15.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Simple.Rest.0.15.0.0\lib\portable-net4+sl5+wp8\Simple.Rest.dll</HintPath>
     </Reference>
     <Reference Include="Simple.Wpf.FSharp.Repl, Version=1.12.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
