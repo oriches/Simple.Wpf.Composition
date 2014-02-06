@@ -12,6 +12,8 @@
 
     public sealed class MainController : BaseController<MainViewModel>
     {
+        private const int DisposeDelay = 333;
+
         private readonly IEnumerable<IWorkspaceDescriptor> _workspaceDescriptors;
         private readonly Logger _logger;
         private readonly CompositeDisposable _disposable;
@@ -43,7 +45,10 @@
                 ViewModel.AddWorkspaceStream
                     .Subscribe(CreateWorkspace),
                 ViewModel.RemoveWorkspaceStream
-                    .Subscribe(DeleteWorkspace),
+                    .Do(RemoveWorkspace)
+                    .Delay(TimeSpan.FromMilliseconds(DisposeDelay))
+                    .Do(DeleteWorkspace)
+                    .Subscribe(),
                 memoryService.MemoryInMegaBytes
                     .DistinctUntilChanged()
                     .Throttle(TimeSpan.FromSeconds(1))
@@ -74,15 +79,20 @@
             _logger.Debug("Workspace count = {0}", ViewModel.Workspaces.Count);
         }
 
+        private void RemoveWorkspace(Workspace workspace)
+        {
+            _logger.Debug("Removing workspace, title - '{0}'", workspace.Title);
+
+            ViewModel.RemoveWorkspace(workspace);
+
+            _logger.Debug("Workspace count = {0}", ViewModel.Workspaces.Count);
+        }
+
         private void DeleteWorkspace(Workspace workspace)
         {
             _logger.Debug("Deleting workspace, title - '{0}'", workspace.Title);
 
-            ViewModel.RemoveWorkspace(workspace);
-
             workspace.Dispose();
-
-            _logger.Debug("Workspace count = {0}", ViewModel.Workspaces.Count);
         }
 
         private void UpdateUsedMemory(decimal usedMemory)

@@ -41,9 +41,15 @@
 
             var oldWorkspace = (Workspace)e.OldValue;
             var newWorkspace = (Workspace)e.NewValue;
-            
+
+            host.Visibility = Visibility.Hidden;
+
             host.UnloadWorkspace(oldWorkspace);
             host.LoadWorkspace(newWorkspace);
+
+            host.Visibility = Visibility.Visible;
+
+            
         }
 
         private void LoadWorkspace(Workspace newWorkspace)
