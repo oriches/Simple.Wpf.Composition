@@ -48,8 +48,6 @@
             host.LoadWorkspace(newWorkspace);
 
             host.Visibility = Visibility.Visible;
-
-            
         }
 
         private void LoadWorkspace(Workspace newWorkspace)
