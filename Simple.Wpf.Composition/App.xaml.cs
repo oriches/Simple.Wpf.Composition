@@ -7,20 +7,12 @@
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            BootStrapper.Start();
-
-            Current.Exit += (s, a) => BootStrapper.Stop();
-
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-GB");
-
             base.OnStartup(e);
-            
-            var mainWindow = new MainWindow
-            {
-                DataContext = BootStrapper.RootVisual
-            };
 
-            mainWindow.Show();
+            BootStrapper.Start();
+            Current.Exit += (s, a) => BootStrapper.Stop();
+            
+            new MainWindow { DataContext = BootStrapper.RootVisual }.Show();
         }
     }
 }
