@@ -7,6 +7,10 @@
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            BootStrapper.Start();
+
+            Current.Exit += (s, a) => BootStrapper.Stop();
+
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-GB");
 
             base.OnStartup(e);

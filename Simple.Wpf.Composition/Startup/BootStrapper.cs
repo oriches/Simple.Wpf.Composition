@@ -20,7 +20,7 @@
             {
                 if (_rootScope == null)
                 {
-                    Run();
+                    Start();
                 }
 
                 _rootController = _rootScope.Resolve<MainController>();
@@ -28,7 +28,7 @@
             }
         }
         
-        private static void Run()
+        public static void Start()
         {
             if (_rootScope != null)
             {
@@ -54,6 +54,15 @@
             
             _rootScope = builder.Build();
             _rootScope.Resolve<WorkspaceFactory>(new Parameter[]{ new NamedParameter("scope", _rootScope) });
+        }
+
+        public static void Stop()
+        {
+            _rootController.Dispose();
+            _rootScope.Dispose();
+
+            _rootController = null;
+            _rootScope = null;
         }
 
         private static IEnumerable<Type> GetWorkspaceDescriptorTypes()

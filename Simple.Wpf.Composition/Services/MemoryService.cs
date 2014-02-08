@@ -30,9 +30,10 @@
 
             _workingSetCounter = new PerformanceCounter("Process", "Working Set - Private", Process.GetCurrentProcess().ProcessName);
 
+            var mainWindow = Application.Current.MainWindow;
             _inactiveObservable = Observable.FromEventPattern(
-               h => Application.Current.MainWindow.Dispatcher.Hooks.DispatcherInactive += h,
-               h => Application.Current.MainWindow.Dispatcher.Hooks.DispatcherInactive -= h)
+               h => mainWindow.Dispatcher.Hooks.DispatcherInactive += h,
+               h => mainWindow.Dispatcher.Hooks.DispatcherInactive -= h)
                .ObserveOn(_scheduler)
                .Replay(1);
 
