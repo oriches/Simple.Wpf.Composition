@@ -20,7 +20,7 @@
         private readonly IConnectableObservable<EventPattern<EventArgs>> _inactiveObservable;
         private readonly Logger _logger;
         private readonly PerformanceCounter _workingSetCounter;
-        private IScheduler _scheduler;
+        private readonly IScheduler _scheduler;
 
         public MemoryService(IScheduler scheduler = null)
         {

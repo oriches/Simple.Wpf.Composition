@@ -54,6 +54,11 @@
                     .Throttle(TimeSpan.FromSeconds(1))
                     .Subscribe(UpdateUsedMemory)
             };
+
+            for (var i = 0; i < 200; i++)
+            {
+                _logger.Debug("Log Item = " + i);
+            }
         }
 
         public override void Dispose()
