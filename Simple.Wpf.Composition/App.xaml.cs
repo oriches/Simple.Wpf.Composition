@@ -10,6 +10,7 @@
             base.OnStartup(e);
 
             BootStrapper.Start();
+
             Current.Exit += (s, a) => BootStrapper.Stop();
             
             new MainWindow { DataContext = BootStrapper.RootVisual }.Show();
