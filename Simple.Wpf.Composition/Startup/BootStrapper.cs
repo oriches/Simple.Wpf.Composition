@@ -42,6 +42,7 @@
             builder.RegisterType<MainController>();
 
             builder.RegisterType<MemoryService>().As<IMemoryService>().InstancePerLifetimeScope();
+            builder.RegisterType<DiagnosticsService>().As<IDiagnosticsService>().InstancePerLifetimeScope();
             
             // Register all the workspace descriptors in the assembly...
             foreach (var type in GetWorkspaceDescriptorTypes())

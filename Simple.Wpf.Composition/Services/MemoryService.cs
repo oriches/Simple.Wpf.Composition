@@ -2,6 +2,7 @@
 {
     using System;
     using System.Diagnostics;
+    using System.Linq;
     using System.Reactive;
     using System.Reactive.Concurrency;
     using System.Reactive.Disposables;
@@ -16,32 +17,45 @@
         private const int Mega = 1024 * 1000;
         private const int Giga = 1024 * 1000 * 1000;
 
-        private readonly CompositeDisposable _disposable;
-        private readonly IConnectableObservable<EventPattern<EventArgs>> _inactiveObservable;
-        private readonly Logger _logger;
-        private readonly PerformanceCounter _workingSetCounter;
-        private readonly IScheduler _scheduler;
+        private readonly IDisposable _disposable;
+        private readonly IConnectableObservable<Counters> _countersObservable;
 
-        public MemoryService(IScheduler scheduler = null)
+        private readonly Logger _logger;
+        private readonly IScheduler _taskPoolScheduler;
+        private readonly IScheduler _dispatcherScheduler;
+
+        internal sealed class Counters : IDisposable
         {
-            _scheduler = scheduler ?? TaskPoolScheduler.Default;
+            public PerformanceCounter MemoryCounter { get; private set; }
+
+            public PerformanceCounter CpuCounter { get; private set; }
+
+            public Counters(PerformanceCounter memoryCounter, PerformanceCounter cpuCounter)
+            {
+                MemoryCounter = memoryCounter;
+                CpuCounter = cpuCounter;
+            }
+
+            public void Dispose()
+            {
+                MemoryCounter.Dispose();
+                CpuCounter.Dispose();
+            }
+        }
+
+        public MemoryService(IScheduler taskPoolScheduler = null, IScheduler dispatcherScheduler = null)
+        {
+            _taskPoolScheduler = taskPoolScheduler ?? TaskPoolScheduler.Default;
+            _dispatcherScheduler = dispatcherScheduler ?? DispatcherScheduler.Current;
 
             _logger = LogManager.GetCurrentClassLogger();
 
-            _workingSetCounter = new PerformanceCounter("Process", "Working Set - Private", Process.GetCurrentProcess().ProcessName);
+            _countersObservable = Observable.Create<Counters>(x => CreateCounters(x))
+                .SubscribeOn(_taskPoolScheduler)
+                .CombineLatest(BufferedDispatcherIdle(TimeSpan.FromSeconds(1)), (x, y) => x)
+                .Replay(1);
 
-            var mainWindow = Application.Current.MainWindow;
-            _inactiveObservable = Observable.FromEventPattern(
-               h => mainWindow.Dispatcher.Hooks.DispatcherInactive += h,
-               h => mainWindow.Dispatcher.Hooks.DispatcherInactive -= h)
-               .ObserveOn(_scheduler)
-               .Replay(1);
-
-            _disposable = new CompositeDisposable
-                          {
-                              _inactiveObservable.Connect(),
-                              _workingSetCounter,
-                          };
+            _disposable = _countersObservable.Connect();
         }
 
         public void Dispose()
@@ -55,20 +69,55 @@
 
         public IObservable<decimal> MemoryInMegaBytes { get { return Create(Mega); } } 
 
-        public IObservable<decimal> MemoryInGigaBytes { get { return Create(Giga); } } 
+        public IObservable<decimal> MemoryInGigaBytes { get { return Create(Giga); } }
+
+        private IObservable<Unit> BufferedDispatcherIdle(TimeSpan timeSpan)
+        {
+            var mainWindow = Application.Current.MainWindow;
+
+            return Observable.FromEventPattern(
+                h => mainWindow.Dispatcher.Hooks.DispatcherInactive += h,
+                h => mainWindow.Dispatcher.Hooks.DispatcherInactive -= h, _dispatcherScheduler)
+                .Buffer(timeSpan, _taskPoolScheduler)
+                .Where(x => x.Any())
+                .Select(x => Unit.Default);
+        }
+
+        private IDisposable CreateCounters(IObserver<Counters> observer)
+        {
+            var disposable = new CompositeDisposable();
+
+            try
+            {
+                var processName = Process.GetCurrentProcess().ProcessName;
+
+                var memoryCounter = new PerformanceCounter("Process", "Working Set - Private", processName);
+                var cpuCounter = new PerformanceCounter("Process", "% Processor Time", processName);
+
+                var counters = new Counters(memoryCounter, cpuCounter);
+
+                observer.OnNext(counters);
+                disposable.Add(counters);
+            }
+            catch (Exception exn)
+            {
+                observer.OnError(exn);
+            }
+
+            return disposable;
+        }
 
         private IObservable<decimal> Create(int divisor)
         {
-            return Observable.Return(Decimal.Round((decimal) WorkingSetPrivate()/divisor, 2), _scheduler)
-                .Merge(_inactiveObservable.Select(x => Decimal.Round((decimal) WorkingSetPrivate()/divisor, 2)))
+            return _countersObservable.Select(x => Decimal.Round((decimal) WorkingSetPrivate(x.MemoryCounter)/divisor, 2))
                 .DistinctUntilChanged();
         }
 
-        private float WorkingSetPrivate()
+        private decimal WorkingSetPrivate(PerformanceCounter memoryCounter)
         {
             try
             {
-                return _workingSetCounter.NextValue();
+                return Convert.ToDecimal(memoryCounter.NextValue());
             }
             catch (Exception exn)
             {

@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Linq;
     using System.Reactive.Disposables;
     using System.Reactive.Linq;
@@ -18,7 +19,7 @@
         private readonly Logger _logger;
         private readonly CompositeDisposable _disposable;
 
-        public MainController(MainViewModel viewModel, IMemoryService memoryService,
+        public MainController(MainViewModel viewModel, IMemoryService memoryService, IDiagnosticsService diagnosticsService,
             IEnumerable<IWorkspaceDescriptor> workspaceDescriptors)
             : base(viewModel)
         {
@@ -44,15 +45,27 @@
             {
                 ViewModel.AddWorkspaceStream
                     .Subscribe(CreateWorkspace),
+
                 ViewModel.RemoveWorkspaceStream
                     .Do(RemoveWorkspace)
                     .Delay(TimeSpan.FromMilliseconds(DisposeDelay))
                     .Do(DeleteWorkspace)
                     .Subscribe(),
+
                 memoryService.MemoryInMegaBytes
                     .DistinctUntilChanged()
                     .Throttle(TimeSpan.FromSeconds(1))
-                    .Subscribe(UpdateUsedMemory)
+                    .Subscribe(UpdateUsedMemory),
+
+                diagnosticsService.PerformanceCounters(1000)
+                    .Subscribe(x =>
+                               {
+                                   Debug.WriteLine("PrivateWorkingSetMemory = " + Decimal.Round(Convert.ToDecimal(x.PrivateWorkingSetMemory) / (1024 * 1000), 2));
+                                   Debug.WriteLine("TotalAvailableMemoryMb = " + x.TotalAvailableMemoryMb);
+                               }),
+
+                diagnosticsService.LoadedAssembly
+                    .Subscribe(x => Debug.WriteLine("Assembly = " + x.FullName)),
             };
 
             for (var i = 0; i < 200; i++)

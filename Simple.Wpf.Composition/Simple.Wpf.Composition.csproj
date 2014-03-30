@@ -57,8 +57,9 @@
     <StartupObject>Simple.Wpf.Composition.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autofac">
-      <HintPath>..\packages\Autofac.3.3.0\lib\net40\Autofac.dll</HintPath>
+    <Reference Include="Autofac, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Autofac.3.3.1\lib\net40\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="Dilbert, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -105,21 +106,21 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Simple.Rest.0.15.0.0\lib\portable-net4+sl5+wp8\Simple.Rest.dll</HintPath>
     </Reference>
-    <Reference Include="Simple.Wpf.FSharp.Repl, Version=1.15.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Simple.Wpf.FSharp.Repl, Version=1.17.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Simple.Wpf.FSharp.Repl.1.15.0.0\lib\net40\Simple.Wpf.FSharp.Repl.dll</HintPath>
+      <HintPath>..\packages\Simple.Wpf.FSharp.Repl.1.17.0.0\lib\net40\Simple.Wpf.FSharp.Repl.dll</HintPath>
     </Reference>
-    <Reference Include="Simple.Wpf.FSharp.Repl.Themes, Version=1.15.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Simple.Wpf.FSharp.Repl.Themes, Version=1.17.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Simple.Wpf.FSharp.Repl.1.15.0.0\lib\net40\Simple.Wpf.FSharp.Repl.Themes.dll</HintPath>
+      <HintPath>..\packages\Simple.Wpf.FSharp.Repl.1.17.0.0\lib\net40\Simple.Wpf.FSharp.Repl.Themes.dll</HintPath>
     </Reference>
-    <Reference Include="Simple.Wpf.Terminal, Version=1.25.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Simple.Wpf.Terminal, Version=1.27.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Simple.Wpf.Terminal.1.25.0.0\lib\net40\Simple.Wpf.Terminal.dll</HintPath>
+      <HintPath>..\packages\Simple.Wpf.Terminal.1.27.0.0\lib\net40\Simple.Wpf.Terminal.dll</HintPath>
     </Reference>
-    <Reference Include="Simple.Wpf.Terminal.Themes, Version=1.25.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Simple.Wpf.Terminal.Themes, Version=1.27.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Simple.Wpf.Terminal.1.25.0.0\lib\net40\Simple.Wpf.Terminal.Themes.dll</HintPath>
+      <HintPath>..\packages\Simple.Wpf.Terminal.1.27.0.0\lib\net40\Simple.Wpf.Terminal.Themes.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -189,7 +190,9 @@
     <Compile Include="Infrastructure\BaseController.cs" />
     <Compile Include="Infrastructure\ExpressionHelper.cs" />
     <Compile Include="Infrastructure\LimitedMemoryTarget.cs" />
+    <Compile Include="Services\IDiagnosticsService.cs" />
     <Compile Include="Services\IMemoryService.cs" />
+    <Compile Include="Services\DiagnosticsService.cs" />
     <Compile Include="Services\MemoryService.cs" />
     <Compile Include="Workspaces\FSharp.Repl\FSharpReplController.cs" />
     <Compile Include="Workspaces\FSharp.Repl\FSharpReplWorkspaceDescriptor.cs" />
@@ -297,11 +300,14 @@
     </EmbeddedResource>
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
