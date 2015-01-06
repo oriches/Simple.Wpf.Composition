@@ -10,6 +10,6 @@
 
         public int humidity { get; set; }
 
-        public int pressure { get; set; }
+        public double pressure { get; set; }
     }
 }
