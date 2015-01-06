@@ -62,9 +62,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
     </Reference>
-    <Reference Include="Dilbert, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Dilbert, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Daily.Dilbert.Service.1.8\lib\net40\Dilbert.dll</HintPath>
+      <HintPath>..\packages\Daily.Dilbert.Service.1.9\lib\net40\Dilbert.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
