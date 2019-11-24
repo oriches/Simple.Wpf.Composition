@@ -12,8 +12,8 @@
                 Padding="5">
 
             <Grid HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch">
-                
+                  VerticalAlignment="Stretch">
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="5" />
@@ -38,13 +38,13 @@
                           HorizontalAlignment="Stretch"
                           HorizontalContentAlignment="Stretch"
                           ItemsSource="{Binding Path=Cities, Mode=OneWay}"
-                          SelectedValue="{Binding Path=SelectedCity, Mode=TwoWay}"/>
-                
+                          SelectedValue="{Binding Path=SelectedCity, Mode=TwoWay}" />
+
                 <TextBlock x:Name="CityTextBlock"
                            Grid.Row="4"
                            Foreground="White"
                            HorizontalAlignment="Stretch"
-                           Text="{Binding Path=SelectedCity, Mode=OneWay}"/>
+                           Text="{Binding Path=SelectedCity, Mode=OneWay}" />
 
                 <TextBlock x:Name="TemperatureTextBlock"
                            Grid.Row="6"
@@ -59,9 +59,9 @@
                            Text="{Binding Path=Description, Mode=OneWay}" />
 
             </Grid>
-                
+
         </Border>
 
-       </DataTemplate>
+    </DataTemplate>
 
 </ResourceDictionary>

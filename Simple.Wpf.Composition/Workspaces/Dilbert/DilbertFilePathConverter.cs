@@ -1,22 +1,19 @@
-﻿namespace Simple.Wpf.Composition.Workspaces.Dilbert
-{
-    using System;
-    using System.Globalization;
-    using System.Windows.Controls;
-    using System.Windows.Data;
-    using System.Windows.Media;
-    using System.Windows.Media.Imaging;
+﻿using System;
+using System.Globalization;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
+namespace Simple.Wpf.Composition.Workspaces.Dilbert
+{
     public sealed class DilbertFilePathConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             try
             {
-                if (value == null)
-                {
-                    return null;
-                }
+                if (value == null) return null;
 
                 var src = new BitmapImage();
                 var dilbertImage = new Image();

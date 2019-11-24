@@ -1,12 +1,13 @@
-﻿namespace Simple.Wpf.Composition.Workspaces.Weather
-{
-    using System;
-    using Autofac;
-    using Services;
+﻿using System;
+using Autofac;
+using Simple.Wpf.Composition.Workspaces.Weather.Services;
 
+namespace Simple.Wpf.Composition.Workspaces.Weather
+{
     public sealed class WeatherWorkspaceDescriptor : IWorkspaceDescriptor
     {
-        private readonly Uri _resources = new Uri("/simple.wpf.composition;component/workspaces/weather/resources.xaml", UriKind.RelativeOrAbsolute);
+        private readonly Uri _resources = new Uri("/simple.wpf.composition;component/workspaces/weather/resources.xaml",
+            UriKind.RelativeOrAbsolute);
 
         private readonly WorkspaceFactory _workspaceFactory;
 
@@ -15,9 +16,9 @@
             _workspaceFactory = workspaceFactory;
         }
 
-        public int Position { get { return 0; } }
+        public int Position => 0;
 
-        public string Name { get { return "Weather Workspace"; } }
+        public string Name => "Weather Workspace";
 
         public Workspace CreateWorkspace()
         {

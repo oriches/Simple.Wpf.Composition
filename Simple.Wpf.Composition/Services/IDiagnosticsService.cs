@@ -1,8 +1,8 @@
-﻿namespace Simple.Wpf.Composition.Services
-{
-    using System;
-    using System.Reflection;
+﻿using System;
+using System.Reflection;
 
+namespace Simple.Wpf.Composition.Services
+{
     public interface IDiagnosticsService
     {
         IObservable<Assembly> LoadedAssembly { get; }

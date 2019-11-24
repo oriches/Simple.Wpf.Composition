@@ -1,13 +1,15 @@
-﻿namespace Simple.Wpf.Composition.Workspaces.FSharp.Repl
-{
-    using System;
-    using Autofac;
-    using Wpf.FSharp.Repl.UI.Controllers;
-    using Wpf.FSharp.Repl.UI.ViewModels;
+﻿using System;
+using Autofac;
+using Simple.Wpf.FSharp.Repl.UI.Controllers;
+using Simple.Wpf.FSharp.Repl.UI.ViewModels;
 
+namespace Simple.Wpf.Composition.Workspaces.FSharp.Repl
+{
     public sealed class FSharpReplWorkspaceDescriptor : IWorkspaceDescriptor
     {
-        private readonly Uri _resources = new Uri("/simple.wpf.composition;component/workspaces/fsharp.repl/resources.xaml", UriKind.RelativeOrAbsolute);
+        private readonly Uri _resources =
+            new Uri("/simple.wpf.composition;component/workspaces/fsharp.repl/resources.xaml",
+                UriKind.RelativeOrAbsolute);
 
         private readonly WorkspaceFactory _workspaceFactory;
 
@@ -16,9 +18,9 @@
             _workspaceFactory = workspaceFactory;
         }
 
-        public int Position { get { return 0; } }
+        public int Position => 0;
 
-        public string Name { get { return "F# REPL Workspace"; } }
+        public string Name => "F# REPL Workspace";
 
         public Workspace CreateWorkspace()
         {

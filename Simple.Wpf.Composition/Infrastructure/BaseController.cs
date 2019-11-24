@@ -1,7 +1,7 @@
-﻿namespace Simple.Wpf.Composition.Infrastructure
-{
-    using System;
+﻿using System;
 
+namespace Simple.Wpf.Composition.Infrastructure
+{
     public abstract class BaseController : IDisposable
     {
         protected BaseController(BaseViewModel viewModel = null)
@@ -15,7 +15,6 @@
 
         public virtual void Dispose()
         {
-            
         }
     }
 
@@ -26,19 +25,13 @@
         {
         }
 
-        public virtual new TViewModel ViewModel
+        public new virtual TViewModel ViewModel
         {
-            get
-            {
-                return (TViewModel)base.ViewModel;
-            }
+            get => (TViewModel) base.ViewModel;
 
-            protected set
-            {
-                base.ViewModel = value;
-            }
+            protected set => base.ViewModel = value;
         }
 
-        public override Type Type { get { return typeof (TViewModel); } }
+        public override Type Type => typeof(TViewModel);
     }
 }

@@ -5,25 +5,25 @@
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                     xmlns:vm="clr-namespace:Simple.Wpf.Composition.Workspaces.Logging"
                     xmlns:terminal="clr-namespace:Simple.Wpf.Terminal;assembly=Simple.Wpf.Terminal">
-    
+
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/Simple.Wpf.Terminal.Themes;component/GreenTheme.xaml" />
     </ResourceDictionary.MergedDictionaries>
-    
+
 
     <DataTemplate DataType="{x:Type vm:LoggingViewModel}">
 
         <Grid>
-            
+
             <terminal:Terminal x:Name="LoggingTerminal"
                                Margin="5"
                                IsReadOnly="True"
                                VerticalScrollBarVisibility="Visible"
                                Prompt="{Binding Path=Prompt, Mode=OneTime}"
-                               ItemsSource="{Binding Path=Entries, Mode=OneWay}"/>
-            
+                               ItemsSource="{Binding Path=Entries, Mode=OneWay}" />
+
         </Grid>
-        
+
     </DataTemplate>
-    
+
 </ResourceDictionary>

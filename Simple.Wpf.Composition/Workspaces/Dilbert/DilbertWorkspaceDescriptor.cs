@@ -1,12 +1,13 @@
-﻿namespace Simple.Wpf.Composition.Workspaces.Dilbert
-{
-    using System;
-    using Autofac;
-    using global::Dilbert;
+﻿using System;
+using Autofac;
+using Dilbert;
 
+namespace Simple.Wpf.Composition.Workspaces.Dilbert
+{
     public sealed class DilbertWorkspaceDescriptor : IWorkspaceDescriptor
     {
-        private readonly Uri _resources = new Uri("/simple.wpf.composition;component/workspaces/dilbert/resources.xaml", UriKind.RelativeOrAbsolute);
+        private readonly Uri _resources = new Uri("/simple.wpf.composition;component/workspaces/dilbert/resources.xaml",
+            UriKind.RelativeOrAbsolute);
 
         private readonly WorkspaceFactory _workspaceFactory;
 
@@ -15,9 +16,9 @@
             _workspaceFactory = workspaceFactory;
         }
 
-        public int Position { get { return 0; } }
+        public int Position => 0;
 
-        public string Name { get { return "Dilbert Workspace"; } }
+        public string Name => "Dilbert Workspace";
 
         public Workspace CreateWorkspace()
         {

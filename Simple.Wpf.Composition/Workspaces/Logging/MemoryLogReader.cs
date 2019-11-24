@@ -1,20 +1,21 @@
-﻿namespace Simple.Wpf.Composition.Workspaces.Logging
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Reactive.Concurrency;
-    using System.Reactive.Linq;
-    using System.Reactive.Subjects;
-    using Infrastructure;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reactive.Concurrency;
+using System.Reactive.Linq;
+using System.Reactive.Subjects;
+using NLog;
+using Simple.Wpf.Composition.Infrastructure;
 
+namespace Simple.Wpf.Composition.Workspaces.Logging
+{
     public sealed class MemoryLogReader : ILogReader, IDisposable
     {
-        private readonly string _logName;
         private readonly IConnectableObservable<IEnumerable<string>> _connectObservable;
-        private readonly LimitedMemoryTarget _target;
         private readonly IDisposable _disposable;
-        
+        private readonly string _logName;
+        private readonly LimitedMemoryTarget _target;
+
         public MemoryLogReader(string logName, IScheduler scheduler = null)
         {
             _logName = logName;
@@ -26,7 +27,7 @@
                 .Select(x => ReadTargetEntries())
                 .Publish();
 
-              _disposable = _connectObservable.Connect();
+            _disposable = _connectObservable.Connect();
         }
 
         public void Dispose()
@@ -57,9 +58,9 @@
 
         private LimitedMemoryTarget FindTarget()
         {
-            return NLog.LogManager.Configuration.AllTargets.Where(target => target.Name == _logName)
-               .Cast<LimitedMemoryTarget>()
-               .FirstOrDefault();
+            return LogManager.Configuration.AllTargets.Where(target => target.Name == _logName)
+                .Cast<LimitedMemoryTarget>()
+                .FirstOrDefault();
         }
     }
 }

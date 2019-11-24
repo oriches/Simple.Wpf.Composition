@@ -1,8 +1,8 @@
-﻿namespace Simple.Wpf.Composition.Infrastructure
-{
-    using System;
-    using System.Linq.Expressions;
+﻿using System;
+using System.Linq.Expressions;
 
+namespace Simple.Wpf.Composition.Infrastructure
+{
     public static class ExpressionHelper
     {
         public static string Name<T>(Expression<Func<T>> expression)
@@ -11,12 +11,12 @@
             MemberExpression memberExpression;
             if (lambda.Body is UnaryExpression)
             {
-                var unaryExpression = (UnaryExpression)lambda.Body;
-                memberExpression = (MemberExpression)unaryExpression.Operand;
+                var unaryExpression = (UnaryExpression) lambda.Body;
+                memberExpression = (MemberExpression) unaryExpression.Operand;
             }
             else
             {
-                memberExpression = (MemberExpression)lambda.Body;
+                memberExpression = (MemberExpression) lambda.Body;
             }
 
             return memberExpression.Member.Name;

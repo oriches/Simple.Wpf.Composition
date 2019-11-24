@@ -15,26 +15,25 @@
 
             <Grid DockPanel.Dock="Top"
                   Margin="5">
-                
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                
+
                 <ComboBox x:Name="AvailableWorkspacesComboBox"
                           Grid.Column="0"
                           VerticalAlignment="Center"
                           HorizontalAlignment="Stretch"
                           Margin="0,0,5,0"
-                          ItemsSource="{Binding Path=AvailableWorkspaces, Mode=OneTime}">
-                </ComboBox>
+                          ItemsSource="{Binding Path=AvailableWorkspaces, Mode=OneTime}" />
                 <Button x:Name="AddWorkspaceButton"
                         Grid.Column="1"
                         Padding="5,0"
                         Command="{Binding Path=AddWorkspaceCommand, Mode=OneWay}"
                         CommandParameter="{Binding ElementName=AvailableWorkspacesComboBox, Path=SelectedItem, Mode=OneWay}"
                         Content="Add" />
-                
+
             </Grid>
 
             <TextBlock x:Name="MemoryUsedTextBlock"
@@ -50,36 +49,36 @@
                         SelectedItem="{Binding Path=SelectedWorkspace, Mode=TwoWay}"
                         Margin="5,0,5,5"
                         DockPanel.Dock="Top">
-                    <TabControl.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal"
-                                        Margin="5">
-                                <TextBlock Text="{Binding Path=Title, Mode=OneWay}"
-                                           Margin="0,0,10,0"/>
-                                <Button Content="Close"
-                                        Padding="5,0"
-                                        Command="{Binding ElementName=WorkspaceTabs, Path=DataContext.RemoveWorkspaceCommand, Mode=OneWay}" />
-                                <StackPanel.ContextMenu>
-                                    <ContextMenu>
-                                        <MenuItem Header="Menu 1"></MenuItem>
-                                        <MenuItem Header="Menu 2"></MenuItem>
-                                        <MenuItem Header="Menu 3"></MenuItem>
-                                    </ContextMenu>
-                                </StackPanel.ContextMenu>
-                            </StackPanel>
-                        </DataTemplate>
-                    </TabControl.ItemTemplate>
-                    <TabControl.ContentTemplate>
-                        <DataTemplate>
-                            <ContentControl>
-                                <workspaces:WorkspaceHost x:Name="WorkspaceHost"
-                                                          Margin="5"
-                                                          Workspace="{Binding Mode=OneWay}" />
-                            </ContentControl>
-                        </DataTemplate>
-                    </TabControl.ContentTemplate>
-                </TabControl>
-            
+                <TabControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="5">
+                            <TextBlock Text="{Binding Path=Title, Mode=OneWay}"
+                                       Margin="0,0,10,0" />
+                            <Button Content="Close"
+                                    Padding="5,0"
+                                    Command="{Binding ElementName=WorkspaceTabs, Path=DataContext.RemoveWorkspaceCommand, Mode=OneWay}" />
+                            <StackPanel.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Menu 1" />
+                                    <MenuItem Header="Menu 2" />
+                                    <MenuItem Header="Menu 3" />
+                                </ContextMenu>
+                            </StackPanel.ContextMenu>
+                        </StackPanel>
+                    </DataTemplate>
+                </TabControl.ItemTemplate>
+                <TabControl.ContentTemplate>
+                    <DataTemplate>
+                        <ContentControl>
+                            <workspaces:WorkspaceHost x:Name="WorkspaceHost"
+                                                      Margin="5"
+                                                      Workspace="{Binding Mode=OneWay}" />
+                        </ContentControl>
+                    </DataTemplate>
+                </TabControl.ContentTemplate>
+            </TabControl>
+
         </DockPanel>
 
     </DataTemplate>

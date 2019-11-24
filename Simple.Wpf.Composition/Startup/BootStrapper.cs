@@ -1,14 +1,13 @@
-﻿namespace Simple.Wpf.Composition.Startup
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using Autofac;
-    using Autofac.Core;
-    using Infrastructure;
-    using Services;
-    using Workspaces;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Autofac;
+using Simple.Wpf.Composition.Infrastructure;
+using Simple.Wpf.Composition.Services;
+using Simple.Wpf.Composition.Workspaces;
 
+namespace Simple.Wpf.Composition.Startup
+{
     public static class BootStrapper
     {
         private static ILifetimeScope _rootScope;
@@ -18,22 +17,16 @@
         {
             get
             {
-                if (_rootScope == null)
-                {
-                    Start();
-                }
+                if (_rootScope == null) Start();
 
                 _rootController = _rootScope.Resolve<MainController>();
                 return _rootController.ViewModel;
             }
         }
-        
+
         public static void Start()
         {
-            if (_rootScope != null)
-            {
-                return;
-            }
+            if (_rootScope != null) return;
 
             var builder = new ContainerBuilder();
 
@@ -43,18 +36,16 @@
 
             builder.RegisterType<MemoryService>().As<IMemoryService>().InstancePerLifetimeScope();
             builder.RegisterType<DiagnosticsService>().As<IDiagnosticsService>().InstancePerLifetimeScope();
-            
+
             // Register all the workspace descriptors in the assembly...
             foreach (var type in GetWorkspaceDescriptorTypes())
-            {
                 builder.RegisterType(type).As(typeof(IWorkspaceDescriptor));
-            }
 
             builder.RegisterType<WorkspaceFactory>().InstancePerLifetimeScope();
 
-            
+
             _rootScope = builder.Build();
-            _rootScope.Resolve<WorkspaceFactory>(new Parameter[]{ new NamedParameter("scope", _rootScope) });
+            _rootScope.Resolve<WorkspaceFactory>(new NamedParameter("scope", _rootScope));
         }
 
         public static void Stop()

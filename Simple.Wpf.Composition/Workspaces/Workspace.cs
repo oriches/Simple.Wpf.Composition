@@ -1,14 +1,12 @@
-﻿namespace Simple.Wpf.Composition.Workspaces
-{
-    using System;
-    using System.ComponentModel;
-    using System.Runtime.CompilerServices;
-    using Infrastructure;
+﻿using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using Simple.Wpf.Composition.Infrastructure;
 
+namespace Simple.Wpf.Composition.Workspaces
+{
     public sealed class Workspace : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private readonly BaseController _controller;
         private readonly Action _dispose;
         private string _title;
@@ -21,18 +19,15 @@
             _dispose = dispose;
         }
 
-        public BaseViewModel Content { get { return _controller.ViewModel; } }
+        public BaseViewModel Content => _controller.ViewModel;
 
-        public Type Type { get { return _controller.Type; } }
+        public Type Type => _controller.Type;
 
-        public Uri Resources { get; private set; }
+        public Uri Resources { get; }
 
         public string Title
         {
-            get
-            {
-                return _title;
-            }
+            get => _title;
 
             set
             {
@@ -40,6 +35,8 @@
                 OnPropertyChanged();
             }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public void Dispose()
         {
@@ -53,10 +50,7 @@
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             var handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(propertyName));
-            }
+            handler?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

@@ -1,11 +1,12 @@
-﻿namespace Simple.Wpf.Composition.Workspaces.Example
-{
-    using System;
-    using Autofac;
+﻿using System;
+using Autofac;
 
+namespace Simple.Wpf.Composition.Workspaces.Example
+{
     public sealed class ExampleWorkspaceDescriptor : IWorkspaceDescriptor
     {
-        private readonly Uri _resources = new Uri("/simple.wpf.composition;component/workspaces/example/resources.xaml", UriKind.RelativeOrAbsolute);
+        private readonly Uri _resources = new Uri("/simple.wpf.composition;component/workspaces/example/resources.xaml",
+            UriKind.RelativeOrAbsolute);
 
         private readonly WorkspaceFactory _workspaceFactory;
 
@@ -14,9 +15,9 @@
             _workspaceFactory = workspaceFactory;
         }
 
-        public int Position { get { return 0; } }
+        public int Position => 0;
 
-        public string Name { get { return "Example Workspace"; } }
+        public string Name => "Example Workspace";
 
         public Workspace CreateWorkspace()
         {

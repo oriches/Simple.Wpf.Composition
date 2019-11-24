@@ -1,12 +1,12 @@
-﻿namespace Simple.Wpf.Composition.Services
-{
-    using System;
+﻿using System;
 
+namespace Simple.Wpf.Composition.Services
+{
     public interface IMemoryService
     {
         IObservable<decimal> MemoryInBytes { get; }
 
-        IObservable<decimal> MemoryInKiloBytes { get;  }
+        IObservable<decimal> MemoryInKiloBytes { get; }
 
         IObservable<decimal> MemoryInMegaBytes { get; }
 

@@ -9,7 +9,7 @@
 
         <Grid HorizontalAlignment="Stretch"
               VerticalAlignment="Stretch">
-            
+
             <Border Background="DarkMagenta"
                     VerticalAlignment="Stretch">
                 <TextBlock Text="This is an example workspace"
@@ -20,9 +20,9 @@
                            FontSize="16"
                            FontStyle="Italic" />
             </Border>
-            
+
         </Grid>
-        
+
     </DataTemplate>
-    
+
 </ResourceDictionary>

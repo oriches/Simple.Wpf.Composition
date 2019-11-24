@@ -1,47 +1,28 @@
-﻿namespace Simple.Wpf.Composition.Services
-{
-    using System;
-    using System.Diagnostics;
-    using System.Linq;
-    using System.Reactive;
-    using System.Reactive.Concurrency;
-    using System.Reactive.Disposables;
-    using System.Reactive.Linq;
-    using System.Reactive.Subjects;
-    using System.Windows;
-    using NLog;
+﻿using System;
+using System.Diagnostics;
+using System.Linq;
+using System.Reactive;
+using System.Reactive.Concurrency;
+using System.Reactive.Disposables;
+using System.Reactive.Linq;
+using System.Reactive.Subjects;
+using System.Windows;
+using NLog;
 
+namespace Simple.Wpf.Composition.Services
+{
     public sealed class MemoryService : IMemoryService, IDisposable
     {
         private const int Kilo = 1024;
         private const int Mega = 1024 * 1000;
         private const int Giga = 1024 * 1000 * 1000;
+        private readonly IConnectableObservable<Counters> _countersObservable;
+        private readonly IScheduler _dispatcherScheduler;
 
         private readonly IDisposable _disposable;
-        private readonly IConnectableObservable<Counters> _countersObservable;
 
         private readonly Logger _logger;
         private readonly IScheduler _taskPoolScheduler;
-        private readonly IScheduler _dispatcherScheduler;
-
-        internal sealed class Counters : IDisposable
-        {
-            public PerformanceCounter MemoryCounter { get; private set; }
-
-            public PerformanceCounter CpuCounter { get; private set; }
-
-            public Counters(PerformanceCounter memoryCounter, PerformanceCounter cpuCounter)
-            {
-                MemoryCounter = memoryCounter;
-                CpuCounter = cpuCounter;
-            }
-
-            public void Dispose()
-            {
-                MemoryCounter.Dispose();
-                CpuCounter.Dispose();
-            }
-        }
 
         public MemoryService(IScheduler taskPoolScheduler = null, IScheduler dispatcherScheduler = null)
         {
@@ -63,21 +44,21 @@
             _disposable.Dispose();
         }
 
-        public IObservable<decimal> MemoryInBytes { get { return Create(1); } }
+        public IObservable<decimal> MemoryInBytes => Create(1);
 
-        public IObservable<decimal> MemoryInKiloBytes { get { return Create(Kilo); } }
+        public IObservable<decimal> MemoryInKiloBytes => Create(Kilo);
 
-        public IObservable<decimal> MemoryInMegaBytes { get { return Create(Mega); } } 
+        public IObservable<decimal> MemoryInMegaBytes => Create(Mega);
 
-        public IObservable<decimal> MemoryInGigaBytes { get { return Create(Giga); } }
+        public IObservable<decimal> MemoryInGigaBytes => Create(Giga);
 
         private IObservable<Unit> BufferedDispatcherIdle(TimeSpan timeSpan)
         {
             var mainWindow = Application.Current.MainWindow;
 
             return Observable.FromEventPattern(
-                h => mainWindow.Dispatcher.Hooks.DispatcherInactive += h,
-                h => mainWindow.Dispatcher.Hooks.DispatcherInactive -= h, _dispatcherScheduler)
+                    h => mainWindow.Dispatcher.Hooks.DispatcherInactive += h,
+                    h => mainWindow.Dispatcher.Hooks.DispatcherInactive -= h, _dispatcherScheduler)
                 .Buffer(timeSpan, _taskPoolScheduler)
                 .Where(x => x.Any())
                 .Select(x => Unit.Default);
@@ -109,7 +90,7 @@
 
         private IObservable<decimal> Create(int divisor)
         {
-            return _countersObservable.Select(x => Decimal.Round((decimal) WorkingSetPrivate(x.MemoryCounter)/divisor, 2))
+            return _countersObservable.Select(x => decimal.Round(WorkingSetPrivate(x.MemoryCounter) / divisor, 2))
                 .DistinctUntilChanged();
         }
 
@@ -122,8 +103,27 @@
             catch (Exception exn)
             {
                 _logger.Warn("Failed to calculate working set (private), exception message - '{0}'", exn.Message);
-                
+
                 return 0;
+            }
+        }
+
+        internal sealed class Counters : IDisposable
+        {
+            public Counters(PerformanceCounter memoryCounter, PerformanceCounter cpuCounter)
+            {
+                MemoryCounter = memoryCounter;
+                CpuCounter = cpuCounter;
+            }
+
+            public PerformanceCounter MemoryCounter { get; }
+
+            public PerformanceCounter CpuCounter { get; }
+
+            public void Dispose()
+            {
+                MemoryCounter.Dispose();
+                CpuCounter.Dispose();
             }
         }
     }

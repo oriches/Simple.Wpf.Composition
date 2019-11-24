@@ -14,8 +14,7 @@
 
     <Style x:Key="ReplButtonsStackPanelStyle"
            TargetType="{x:Type StackPanel}"
-           BasedOn="{x:Null}">
-    </Style>
+           BasedOn="{x:Null}" />
 
     <Style x:Key="ReplButtonStyle"
            TargetType="{x:Type Button}"
@@ -41,8 +40,7 @@
 
     <Style x:Key="ReplBorderStyle"
            TargetType="{x:Type Border}"
-           BasedOn="{x:Null}">
-    </Style>
+           BasedOn="{x:Null}" />
 
     <Style x:Key="ReplTerminalStyle"
            TargetType="{x:Type terminal:Terminal}"

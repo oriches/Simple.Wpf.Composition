@@ -1,10 +1,10 @@
 ﻿<UserControl x:Class="Simple.Wpf.Composition.Workspaces.WorkspaceHost"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d">
-    
+
     <Border BorderBrush="Black"
             BorderThickness="1"
             Background="WhiteSmoke">
@@ -12,5 +12,5 @@
         <ContentPresenter x:Name="WorkspacePresenter" />
 
     </Border>
-        
+
 </UserControl>

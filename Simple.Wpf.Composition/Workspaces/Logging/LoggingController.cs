@@ -1,10 +1,10 @@
-﻿namespace Simple.Wpf.Composition.Workspaces.Logging
-{
-    using System;
-    using System.Reactive.Concurrency;
-    using System.Reactive.Linq;
-    using Infrastructure;
+﻿using System;
+using System.Reactive.Concurrency;
+using System.Reactive.Linq;
+using Simple.Wpf.Composition.Infrastructure;
 
+namespace Simple.Wpf.Composition.Workspaces.Logging
+{
     public sealed class LoggingController : BaseController<LoggingViewModel>
     {
         private readonly IDisposable _disposable;

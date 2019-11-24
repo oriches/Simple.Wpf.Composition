@@ -2,15 +2,15 @@
 {
     public sealed class CityWeather
     {
-        public double Temp { get; private set; }
-        public string City { get; private set; }
-        public string Description { get; private set; }
-
         public CityWeather(string city, double temp, string description)
         {
             City = city;
             Temp = temp;
             Description = description;
         }
+
+        public double Temp { get; }
+        public string City { get; }
+        public string Description { get; }
     }
 }

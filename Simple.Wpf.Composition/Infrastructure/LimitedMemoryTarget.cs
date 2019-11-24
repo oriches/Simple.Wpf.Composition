@@ -1,10 +1,10 @@
-﻿namespace Simple.Wpf.Composition.Infrastructure
-{
-    using System.Collections.Concurrent;
-    using System.Collections.Generic;
-    using NLog;
-    using NLog.Targets;
+﻿using System.Collections.Concurrent;
+using System.Collections.Generic;
+using NLog;
+using NLog.Targets;
 
+namespace Simple.Wpf.Composition.Infrastructure
+{
     [Target("LimitedMemory")]
     public sealed class LimitedMemoryTarget : TargetWithLayout
     {
@@ -15,16 +15,10 @@
         {
             Limit = 1000;
         }
-        
+
         public int Limit { get; set; }
 
-        public IEnumerable<string> Logs
-        {
-            get
-            {
-                return _entries;
-            }
-        }
+        public IEnumerable<string> Logs => _entries;
 
         protected override void Write(LogEventInfo logEvent)
         {

@@ -1,9 +1,9 @@
-﻿namespace Simple.Wpf.Composition.Workspaces.FSharp.Repl
-{
-    using Wpf.FSharp.Repl.UI.Controllers;
-    using Wpf.FSharp.Repl.UI.ViewModels;
-    using BaseViewModel = Infrastructure.BaseViewModel;
+﻿using Simple.Wpf.FSharp.Repl.UI.Controllers;
+using Simple.Wpf.FSharp.Repl.UI.ViewModels;
+using BaseViewModel = Simple.Wpf.Composition.Infrastructure.BaseViewModel;
 
+namespace Simple.Wpf.Composition.Workspaces.FSharp.Repl
+{
     public sealed class FSharpReplViewModel : BaseViewModel
     {
         private readonly IReplEngineController _replEngineController;
@@ -13,8 +13,6 @@
             _replEngineController = replEngineController;
         }
 
-        public IReplEngineViewModel Content { get { return _replEngineController.ViewModel; } }
+        public IReplEngineViewModel Content => _replEngineController.ViewModel;
     }
-
-
 }

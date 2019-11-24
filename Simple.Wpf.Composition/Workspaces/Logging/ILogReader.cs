@@ -1,7 +1,7 @@
-﻿namespace Simple.Wpf.Composition.Workspaces.Logging
-{
-    using System;
+﻿using System;
 
+namespace Simple.Wpf.Composition.Workspaces.Logging
+{
     public interface ILogReader
     {
         IObservable<string> Entries { get; }
