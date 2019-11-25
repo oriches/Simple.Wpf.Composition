@@ -61,15 +61,11 @@
     <Reference Include="Autofac, Version=4.9.4.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.9.4\lib\net45\Autofac.dll</HintPath>
     </Reference>
-    <Reference Include="Dilbert, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Daily.Dilbert.Service.1.9\lib\net40\Dilbert.dll</HintPath>
+    <Reference Include="Dilbert, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Daily.Dilbert.Service.2.0.0\lib\net48\Dilbert.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=1.2.0.246, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpZipLib.1.2.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Expression.Blend.Sdk.WPF.1.0.1\lib\net45\Microsoft.Expression.Interactions.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -98,11 +94,11 @@
     <Reference Include="Simple.Wpf.FSharp.Repl.Themes, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Simple.Wpf.FSharp.Repl.2.0.0\lib\net48\Simple.Wpf.FSharp.Repl.Themes.dll</HintPath>
     </Reference>
-    <Reference Include="Simple.Wpf.Terminal, Version=1.35.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Simple.Wpf.Terminal.2.1.0\lib\net48\Simple.Wpf.Terminal.dll</HintPath>
+    <Reference Include="Simple.Wpf.Terminal, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Simple.Wpf.Terminal.2.2.0\lib\net48\Simple.Wpf.Terminal.dll</HintPath>
     </Reference>
-    <Reference Include="Simple.Wpf.Terminal.Themes, Version=1.35.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Simple.Wpf.Terminal.2.1.0\lib\net48\Simple.Wpf.Terminal.Themes.dll</HintPath>
+    <Reference Include="Simple.Wpf.Terminal.Themes, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Simple.Wpf.Terminal.2.2.0\lib\net48\Simple.Wpf.Terminal.Themes.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -151,9 +147,6 @@
     </Reference>
     <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Expression.Blend.Sdk.WPF.1.0.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
