@@ -1,6 +1,8 @@
 Simple.Wpf.Composition
 ======================
 
+[![Build status](https://ci.appveyor.com/api/projects/status/o4xdboa6ec5nu8g2/branch/master?svg=true)](https://ci.appveyor.com/project/oriches/simple-wpf-composition/branch/master)
+
 If you're reading this you're probably wondering what this git repo is about...
 
 Simply this is example code I'ved used to do composition in WPF, it's all MVVM and uses an IoC container through out. I use the IoC container to created nested (child) lifetime scopes for the main ViewModels, these are created by a WorkspaceDescriptor, contained inside a Workspace and managed by the application chrome (infrastructure), when a Workspace is closed the Workspace is disposed and the nested lifetime scope in the IoC container is disposed - everything is cleaned up! The following blog post explains more - http://awkwardcoder.blogspot.co.uk/2013/11/using-ioc-nested-lifetime-scopes-with.html
