@@ -1,6 +1,7 @@
 ﻿using System;
 using Autofac;
 using Dilbert;
+using Dilbert.Common;
 
 namespace Simple.Wpf.Composition.Workspaces.Dilbert
 {

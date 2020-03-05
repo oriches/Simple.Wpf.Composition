@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Dilbert;
+using Dilbert.Common;
 using Simple.Wpf.Composition.Infrastructure;
 
 namespace Simple.Wpf.Composition.Workspaces.Dilbert

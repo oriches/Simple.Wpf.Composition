@@ -2,7 +2,7 @@
 using System.Net;
 using System.Threading.Tasks;
 using Simple.Rest;
-using Simple.Rest.Extensions;
+using Simple.Rest.Common.Extensions;
 using Simple.Wpf.Composition.Workspaces.Weather.Dtos;
 using Simple.Wpf.Composition.Workspaces.Weather.Model;
 
